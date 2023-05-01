@@ -5,6 +5,8 @@ public class Enemy extends Character {
         this.name = name;
         this.health = health;
         this.attackDamage = attackDamage;
+        this.critRate = critRate;
+        this.critdamage = critdamage;
     }
 
     public void die() {
