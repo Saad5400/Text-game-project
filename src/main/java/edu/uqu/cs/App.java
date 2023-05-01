@@ -13,7 +13,7 @@ public class App {
 
         /* Hint use this as your driver program */
         Option option1 = new Option(
-            "Go outside    ",
+            "Go outside213123",
             () -> {
                 System.out.println("This is a lambda void method with no parameters and no return type.");
             }
