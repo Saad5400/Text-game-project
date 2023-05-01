@@ -9,7 +9,8 @@ public class Enemy extends Character {
         this.critdamage = critdamage;
     }
 
+    // Die Message
     public void die() {
-        // die
+        System.out.println("The enemy has disappeared");
     }
 }

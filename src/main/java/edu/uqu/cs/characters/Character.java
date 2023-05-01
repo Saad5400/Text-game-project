@@ -14,6 +14,7 @@ public abstract class Character {
         // print this attacked target
         target.takeDamage(damage);
     }
+    // Damage System
     public void takeDamage(double damage) {
         health -= damage;
         if (health <= 0) {
