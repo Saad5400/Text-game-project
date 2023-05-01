@@ -2,6 +2,7 @@ package edu.uqu.cs.characters;
 
 public class Player extends Character {
 
+    // Player Stats
     public Player() {
         health = 100.0;
         attackDamage = 10.0;
@@ -9,7 +10,8 @@ public class Player extends Character {
         critdamage = 50.0;
     }
 
+    // Die Message
     public void die() {
-        // die
+        System.out.println("Game Over");
     } 
 }
