@@ -24,10 +24,15 @@ public class App {
             asList(
                 new Option("Go out", () -> {
                     System.out.println("You went out");
+                }),
+                new Option("go ahead", () -> {
+                    System.out.println("hi");
                 })
             ),
             null
         );
+
+        room1.start();
     }
 
 }

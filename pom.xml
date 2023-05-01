@@ -80,7 +80,7 @@
           <executions>
             <execution>
               <goals>
-                <goal>java</goal>
+                <goal>exec:java</goal>
               </goals>
             </execution>
           </executions>

@@ -18,7 +18,11 @@ public class Room {
         this.message = message;
         this.options = options;
         this.enemies = enemies;
-        
+    }
+
+    
+
+    public void start(){
         System.out.println(message);
 
         for (int i = 0; i < options.size(); i++) {
@@ -30,7 +34,13 @@ public class Room {
             System.out.print("Enter your choice: ");
             try {
                 playerChoice = App.scanner.nextInt();
-                break;
+                if (playerChoice > options.size() || playerChoice <= 0){
+                    System.out.println("Enter a number between options: ");
+
+                }
+                else{
+                    break;    
+                }
             }
             catch (Exception e) {
                 System.out.println("Invalid input!");
@@ -38,12 +48,6 @@ public class Room {
         }
 
         options.get(playerChoice-1).action.run();
-    }
-
-    
-
-    public void Start(){
-        // prints
     }
 
 
