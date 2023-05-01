@@ -7,6 +7,8 @@ public abstract class Character {
     // Stats
     public Double health;
     public Double attackDamage;
+    public Double critRate;
+    public Double critdamage;
 
     public void attack(double damage, Character target) {
         // print this attacked target
