@@ -21,8 +21,8 @@ public class Utilities {
 
     public static void print(String s, String color, int delay, Object ... args) {
         String formatted = String.format(s, args);
+        setColor(color);
         for (Character ch : formatted.toCharArray()) {
-            setColor(color);
             System.out.print(ch);
             sleep(delay);
         }
