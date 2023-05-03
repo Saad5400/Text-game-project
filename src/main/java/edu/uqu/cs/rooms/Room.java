@@ -38,9 +38,11 @@ public class Room {
         Utilities.print("%n%s%n%n", AnsiColor.WHITE, message);
         
         for (int i = 0; i < options.size(); i++) {
-            Utilities.print((i+1) + ". " + options.get(i).text + "%n", AnsiColor.CYAN);
+            Utilities.print((i+1) + ". " + options.get(i).text, AnsiColor.CYAN);
+            Utilities.print();
         }
         Utilities.print();
+
 
         while (true) {
 
