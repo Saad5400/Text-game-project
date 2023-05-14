@@ -11,9 +11,11 @@ public class App {
 
     public static void main(String[] args) {
 
-        /* Hint use this as your driver program */
+        // Go to RoomsConstructer.java to see how this works
         ArrayList<Room> rooms = new RoomsConstructer().rooms;
 
+        // starting the first room
+        // got to rooms/Room.java and see the start method
         rooms.get(0).start();
     }
 
