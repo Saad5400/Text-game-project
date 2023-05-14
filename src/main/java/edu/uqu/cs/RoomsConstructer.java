@@ -42,8 +42,8 @@ public class RoomsConstructer {
         );
         // this is useless for now
         roomStart.setEnemies(
-            new Enemy("Enemy 1", 10.0, 10.0),
-            new Enemy("Enemy 2", 10.0, 10.0)
+            new Enemy("Enemy 1", 10.0, 10.0, 5.0, 5.0),
+            new Enemy("Enemy 2", 10.0, 10.0, 5.0,5.0)
         );
         
         return roomStart;

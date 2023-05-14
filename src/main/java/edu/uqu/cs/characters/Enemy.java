@@ -1,7 +1,8 @@
 package edu.uqu.cs.characters;
 
 public class Enemy extends Character {
-    public Enemy(String name, Double health, Double attackDamage) {
+    public Enemy(String name, Double health, Double attackDamage, double critdamage, double critRate) {
+        // Enemy Stats is deffernt depneds on level
         this.name = name;
         this.health = health;
         this.attackDamage = attackDamage;
