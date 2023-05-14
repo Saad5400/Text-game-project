@@ -28,21 +28,12 @@ public class Utilities {
         public static final String UNDERLINE = "\u001B[4m";
         public static final String ITALIC = "\u001B[3m";
         public static final String STRIKETHROUGH = "\u001B[9m";
-        public static final String BOLD_OFF = "\u001B[22m";
-        public static final String UNDERLINE_OFF = "\u001B[24m";
-        public static final String ITALIC_OFF = "\u001B[23m";
-        public static final String STRIKETHROUGH_OFF = "\u001B[29m";
         public static final String BLINK = "\u001B[5m";
-        public static final String BLINK_OFF = "\u001B[25m";
         public static final String REVERSED = "\u001B[7m";
-        public static final String REVERSED_OFF = "\u001B[27m";
         public static final String INVISIBLE = "\u001B[8m";
-        public static final String INVISIBLE_OFF = "\u001B[28m";
         public static final String FRAMED = "\u001B[51m";
         public static final String ENCIRCLED = "\u001B[52m";
         public static final String OVERLINED = "\u001B[53m";
-        public static final String FRAMED_OFF = "\u001B[54m";
-        public static final String OVERLINED_OFF = "\u001B[55m";
         public static final String BRIGHT_BLACK = "\u001B[90m";
         public static final String BRIGHT_RED = "\u001B[91m";
         public static final String BRIGHT_GREEN = "\u001B[92m";
@@ -80,7 +71,7 @@ public class Utilities {
     }
     // overload
     public static void print(String s, Object ... args) {
-        print(s, AnsiColor.RESET, args);
+        print(s, "", args);
     }
     // overload
     public static void print(String s) {
