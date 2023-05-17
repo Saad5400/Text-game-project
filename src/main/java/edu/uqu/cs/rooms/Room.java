@@ -11,6 +11,7 @@ public class Room {
 
     // for each room object we will store its message, options and enemies
     // see class Option and class Enemy
+    private Runnable event = () ->{};
     private String message;
     private ArrayList<Option> options = new ArrayList<Option>();
     private ArrayList<Enemy> enemies = new ArrayList<Enemy>();
@@ -45,7 +46,7 @@ public class Room {
         // it's very similiar to printf, but it will print in colors and add a typing effect
         // see Utilities.java
         Utilities.print("%n%s%n%n", AnsiColor.WHITE, message);
-        
+        event.run();
         // loop for each option and print its text
         for (int i = 0; i < options.size(); i++) {
             Utilities.print((i+1) + ". " + options.get(i).text, AnsiColor.CYAN);
@@ -115,7 +116,9 @@ public class Room {
     public void setEnemies(Enemy... enemies) {
         this.enemies = Utilities.asList(enemies);
     }
-
+    public void setEvent(Runnable event){
+        this.event = event;
+    }
     //#endregion Getters and Setters
 
 } 

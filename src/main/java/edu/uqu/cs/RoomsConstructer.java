@@ -14,13 +14,15 @@ public class RoomsConstructer {
         // craete a room and add it to the list
         // each room can be created from a method that returns a new object of type Room
         rooms.add(createRoomStart());
-        rooms.add(createRoomGarden());
     }
 
     // example room
     public Room createRoomStart() {
         // first create the object
         Room roomStart = new Room();
+        roomStart.setEvent(() ->{
+            System.out.println("there is saad");
+        });
         // set its message
         roomStart.setMessage("You just woke up in a dark and empty castle!");
         // set each option and its action
@@ -37,7 +39,7 @@ public class RoomsConstructer {
             new Option("Explore the castle", () -> {
 
                 System.out.println("You are exploring the castle...");
-
+                exploreTheCastle().start();
             })
         );
         // this is useless for now
@@ -67,5 +69,28 @@ public class RoomsConstructer {
         );
 
         return roomGarden;
+    }
+    public Room exploreTheCastle(){
+        Room room = new Room();
+        room.setMessage("You are in the castle");
+        room.setOptions(
+            // option 1
+            new Option("Go back", () -> {
+
+                System.out.println("You went back...");
+                createRoomGarden().start();
+
+            }),
+            // option 2
+            new Option("Go ahead", () -> {
+
+                System.out.println("You going ahead...");
+                
+
+            })
+        );
+
+
+        return room;
     }
 }
