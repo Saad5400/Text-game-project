@@ -11,8 +11,7 @@ public class Room {
 
     // for each room object we will store its message, options and enemies
     // see class Option and class Enemy
-    private Runnable event = () ->{};
-    private String message;
+    private Runnable event = () -> {}; // empty event
     private ArrayList<Option> options = new ArrayList<Option>();
     private ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
@@ -20,22 +19,22 @@ public class Room {
     private int playerChoice;
 
     //#region Constructors
-    public Room(String message, ArrayList<Option> options, ArrayList<Enemy> enemies) {
-        this.message = message;
+    public Room(ArrayList<Option> options, ArrayList<Enemy> enemies, Runnable event) {
         this.options = options;
         this.enemies = enemies;
+        this.event = event;
     }
 
-    public Room(String message, ArrayList<Option> options) {
-        this(message, options, new ArrayList<Enemy>());
+    public Room(ArrayList<Option> options, ArrayList<Enemy> enemies) {
+        this(options, enemies, () -> {});
     }
 
-    public Room(String message) {
-        this(message, new ArrayList<Option>(), new ArrayList<Enemy>());
+    public Room(ArrayList<Option> options) {
+        this(options, new ArrayList<Enemy>());
     }
 
     public Room() {
-        this("", new ArrayList<Option>(), new ArrayList<Enemy>());
+        this(new ArrayList<Option>());
     }
     //#endregion Constructors
 
@@ -45,7 +44,6 @@ public class Room {
         // first print the message with white color using the print method in Utilities class
         // it's very similiar to printf, but it will print in colors and add a typing effect
         // see Utilities.java
-        Utilities.print("%n%s%n%n", AnsiColor.WHITE, message);
         event.run();
         // loop for each option and print its text
         for (int i = 0; i < options.size(); i++) {
@@ -89,13 +87,6 @@ public class Room {
     }
 
     //#region Getters and Setters
-
-    public String getMessage() {
-        return message;
-    }
-    public void setMessage(String message) {
-        this.message = message;
-    }
 
     public ArrayList<Option> getOptions() {
         return options;

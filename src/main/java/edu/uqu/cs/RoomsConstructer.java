@@ -1,8 +1,8 @@
 package edu.uqu.cs;
 
 import java.util.ArrayList;
-
 import edu.uqu.cs.rooms.*;
+import edu.uqu.cs.Utilities.AnsiColor;
 import edu.uqu.cs.characters.*;
 
 public class RoomsConstructer {
@@ -20,11 +20,13 @@ public class RoomsConstructer {
     public Room createRoomStart() {
         // first create the object
         Room roomStart = new Room();
-        roomStart.setEvent(() ->{
-            System.out.println("there is saad");
+        roomStart.setEvent(() -> {
+            Utilities.print("You just woke up in a dark and empty castle!\n\n", AnsiColor.GREEN);
         });
         // set its message
-        roomStart.setMessage("You just woke up in a dark and empty castle!");
+        // roomStart.setMessage("You just woke up in a dark and empty castle!");
+        // IMPORTANT: No more set message, use set event like above
+
         // set each option and its action
         roomStart.setOptions(
             // option 1               // this is a lambda expression that will be called when the user choose this option
@@ -53,7 +55,10 @@ public class RoomsConstructer {
 
     public Room createRoomGarden() {
         Room roomGarden = new Room();
-        roomGarden.setMessage("You are out in the garden!");
+        Utilities.print("You are out in the garden!\n\n", AnsiColor.GREEN);
+        // roomGarden.setMessage("You are out in the garden!");
+        // IMPORTANT: No more set message, use set event like above
+
         roomGarden.setOptions(
             new Option("Go back", () -> {
 
@@ -72,7 +77,14 @@ public class RoomsConstructer {
     }
     public Room exploreTheCastle(){
         Room room = new Room();
-        room.setMessage("You are in the castle");
+
+        room.setEvent(() -> {
+            Utilities.print("You are in the castle!\n\n", AnsiColor.GREEN);
+        });
+        //room.setMessage("You are in the castle");
+        // IMPORTANT: No more set message, use set event like above
+
+        
         room.setOptions(
             // option 1
             new Option("Go back", () -> {
