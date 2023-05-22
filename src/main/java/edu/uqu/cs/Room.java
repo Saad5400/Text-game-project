@@ -11,7 +11,6 @@ public class Room {
     // see class Option and class Enemy
     private Runnable event = () -> {}; // empty event
     private ArrayList<Option> options = new ArrayList<Option>();
-    private ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
     // this will be used to store the user choice
     private int playerChoice;
@@ -19,7 +18,6 @@ public class Room {
     //#region Constructors
     public Room(ArrayList<Option> options, ArrayList<Enemy> enemies, Runnable event) {
         this.options = options;
-        this.enemies = enemies;
         this.event = event;
     }
 
@@ -96,15 +94,6 @@ public class Room {
         this.options = Utilities.asList(options);
     }
 
-    public ArrayList<Enemy> getEnemies() {
-        return enemies;
-    }
-    public void setEnemies(ArrayList<Enemy> enemies) {
-        this.enemies = enemies;
-    }
-    public void setEnemies(Enemy... enemies) {
-        this.enemies = Utilities.asList(enemies);
-    }
     public void setEvent(Runnable event){
         this.event = event;
     }
