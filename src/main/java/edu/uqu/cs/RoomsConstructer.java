@@ -13,6 +13,8 @@ public class RoomsConstructer {
         // craete a room and add it to the list
         // each room can be created from a method that returns a new object of type Room
         rooms.add(createRoomStart());
+        rooms.add(createRoomGarden());
+        rooms.add(exploreTheCastle());
     }
 
     // example room
@@ -54,7 +56,10 @@ public class RoomsConstructer {
 
     public Room createRoomGarden() {
         Room roomGarden = new Room();
-        Utilities.print("You are out in the garden!\n\n", AnsiColor.GREEN);
+
+        roomGarden.setEvent(() -> {
+            Utilities.print("You are out in the garden!\n\n", AnsiColor.GREEN);
+        });
         // roomGarden.setMessage("You are out in the garden!");
         // IMPORTANT: No more set message, use set event like above
 
