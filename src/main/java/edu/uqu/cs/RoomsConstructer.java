@@ -7,72 +7,72 @@ import java.util.Scanner;
 import edu.uqu.cs.Utilities.AnsiColor;
 import edu.uqu.cs.characters.*;
 
-public class RoomsConstructer {
+public class RoomsConstructor {
 
     // This list will store all the rooms
-    public ArrayList<Room> rooms = new ArrayList<Room>();
+    public ArrayList<Room> rooms;
 
-    public RoomsConstructer() {
-        // craete a room and add it to the list
+    public RoomsConstructor() {
+        // create a room and add it to the list
         // each room can be created from a method that returns a new object of type Room
-        rooms.add(createRoomStart());
-        rooms.add(createRoomGarden());
-        rooms.add(exploreTheCastle());
+        rooms = new ArrayList<Room>(Utilities.asList(
+            createStartRoom(), createGardenRoom(), exploreCastleRoom()
+        ));
     }
 
     // example room
-    public Room createRoomStart() {
+    public Room createStartRoom() {
         // first create the object
-        Room roomStart = new Room();
-        roomStart.setEvent(() -> {
+        Room room = new Room();
+        room.setEvent(() -> {
             Utilities.print("You just woke up in a dark and empty castle!\n\n", AnsiColor.GREEN);
         });
         // set its message
-        // roomStart.setMessage("You just woke up in a dark and empty castle!");
+        // room.setMessage("You just woke up in a dark and empty castle!");
         // IMPORTANT: No more set message, use set event like above
 
         // set each option and its action
-        roomStart.setOptions(
+        room.setOptions(
                 // option 1 // this is a lambda expression that will be called when the user
                 // choose this option
                 new Option("Go out", () -> {
 
                     System.out.println("You went out...");
                     // you can change rooms like this
-                    createRoomGarden().start();
+                    createGardenRoom().start();
 
                 }),
                 // option 2
                 new Option("Explore the castle", () -> {
 
                     System.out.println("You are exploring the castle...");
-                    exploreTheCastle().start();
+                    exploreCastleRoom().start();
                 }));
 
-        return roomStart;
+        return room;
     }
 
-    public Room createRoomGarden() {
-        Room roomGarden = new Room();
+    public Room createGardenRoom() {
+        Room room = new Room();
 
-        roomGarden.setEvent(() -> {
+        room.setEvent(() -> {
             Utilities.print("You are out in the garden!\n\n", AnsiColor.GREEN);
         });
-        // roomGarden.setMessage("You are out in the garden!");
+        // room.setMessage("You are out in the garden!");
         // IMPORTANT: No more set message, use set event like above
 
-        roomGarden.setOptions(
+        room.setOptions(
                 new Option("Go back", () -> {
 
                     System.out.println("You went back...");
-                    createRoomStart().start();
+                    createStartRoom().start();
 
                 }),
                 new Option("Fight the skeleton", () -> {
 
                     App.player.health -= 10;
                     if (App.player.health <= 0) {
-
+                        // Player is dead
                     }
                     Enemy enemy = new Enemy("Skeleton", 100.0, 40.0);
                     enemy.health -= App.player.attackDamage;
@@ -102,10 +102,10 @@ public class RoomsConstructer {
 
                 }));
 
-        return roomGarden;
+        return room;
     }
 
-    public Room exploreTheCastle() {
+    public Room exploreCastleRoom() {
         Room room = new Room();
 
         room.setEvent(() -> {
@@ -119,7 +119,7 @@ public class RoomsConstructer {
                 new Option("Go back", () -> {
 
                     System.out.println("You went back...");
-                    createRoomGarden().start();
+                    createGardenRoom().start();
 
                 }),
                 // option 2
