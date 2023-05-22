@@ -5,7 +5,7 @@ public class Player extends Character {
     // Player Stats
     public Player() {
         health = 100.0;
-        attackDamage = 10.0;
+        attackDamage = 40.0;
         critRate = 10.0;
         critdamage = 50.0;
     }
