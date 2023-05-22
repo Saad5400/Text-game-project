@@ -3,8 +3,6 @@ package edu.uqu.cs;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import edu.uqu.cs.rooms.Room;
-
 public class App {
 
     public static Scanner scanner = new Scanner(System.in);

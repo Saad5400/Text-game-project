@@ -1,7 +1,6 @@
 package edu.uqu.cs;
 
 import java.util.ArrayList;
-import edu.uqu.cs.rooms.*;
 import edu.uqu.cs.Utilities.AnsiColor;
 import edu.uqu.cs.characters.*;
 

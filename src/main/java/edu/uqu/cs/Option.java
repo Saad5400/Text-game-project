@@ -1,4 +1,4 @@
-package edu.uqu.cs.rooms;
+package edu.uqu.cs;
 
 // this class will be used to store the text and action of an option
 

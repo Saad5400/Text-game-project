@@ -1,9 +1,7 @@
-package edu.uqu.cs.rooms;
+package edu.uqu.cs;
 
 import java.util.ArrayList;
 
-import edu.uqu.cs.App;
-import edu.uqu.cs.Utilities;
 import edu.uqu.cs.Utilities.AnsiColor;
 import edu.uqu.cs.characters.Enemy;
 
