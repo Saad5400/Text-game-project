@@ -112,4 +112,20 @@ public class Room {
     }
     //#endregion Getters and Setters
 
+    //Fighting
+    public class Fighting  (){
+        System.out.println("kill the skeleton");
+
+        for(int i = 5; i>=0; i++){
+            Random rn = new Random();
+            int answer = rn.nextInt(10) + 1;
+            
+            if(i > 5){
+                System.out.println("you are die");
+            }
+            
+        }
+
+
+    }
 } 
