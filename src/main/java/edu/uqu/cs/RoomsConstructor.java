@@ -140,7 +140,7 @@ public class RoomsConstructor {
         });
         room.setOptions(
             new Option("Continue...", () -> {
-                // sotoryRoom2().start();
+                storyRoom2().start();
             })
         );
         return room;
@@ -157,7 +157,7 @@ public class RoomsConstructor {
         });
         room.setOptions(
             new Option("Continue...", () -> {
-                // sotoryRoom2().start();
+                // storyRoom3().start();
             })
         );
         return room;
