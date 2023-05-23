@@ -51,7 +51,7 @@ public class App {
     public static void main(String[] args) {
 
         // Go to RoomsConstructer.java to see how this works
-        ArrayList<Room> rooms = new RoomsConstructer().rooms;
+        ArrayList<Room> rooms = new RoomsConstructor().rooms;
 
         // starting the first room
         // got to rooms/Room.java and see the start method

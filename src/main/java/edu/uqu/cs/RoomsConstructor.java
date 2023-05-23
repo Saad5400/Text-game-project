@@ -10,7 +10,7 @@ import edu.uqu.cs.characters.*;
 public class RoomsConstructor {
 
     // This list will store all the rooms
-    public ArrayList<Room> rooms;
+    public ArrayList<Room> rooms = new ArrayList<Room>();
 
     public RoomsConstructor() {
         // create a room and add it to the list
