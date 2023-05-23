@@ -16,8 +16,7 @@ public class RoomsConstructor {
         // create a room and add it to the list
         // each room can be created from a method that returns a new object of type Room
         rooms = new ArrayList<Room>(Utilities.asList(
-            createStartRoom(), createGardenRoom(), exploreCastleRoom()
-        ));
+                createStartRoom(), createGardenRoom(), exploreCastleRoom()));
     }
 
     // example room
@@ -82,23 +81,21 @@ public class RoomsConstructor {
                     int answer = random.nextInt(3) + 1;
                     Scanner scnr = new Scanner(System.in);
 
-                    for(int i =0; i<3; i++){
+                    for (int i = 0; i < 3; i++) {
                         Utilities.print("You should enter a number between 1 to 3: ", AnsiColor.RED);
                         int input = scnr.nextInt();
 
-                        if(input == answer){
+                        if (input == answer) {
                             Utilities.print("your damage the skeleton");
+                        } else if (input != answer) {
+                            Utilities.print("your damaged\n", AnsiColor.RED);
                         }
-                        else if (input != answer){
-                            Utilities.print("your damaged\n",AnsiColor.RED);
-                        }  
-                        
-                        else{
+
+                else {
 
                         }
 
                     }
-
 
                 }));
 
@@ -129,6 +126,23 @@ public class RoomsConstructor {
 
                 }));
 
+        return room;
+    }
+
+    public Room sotoryRoom1() {
+        Room room = new Room();
+        room.setEvent(() -> {
+            Utilities.print(
+                    "Aban is found unconscious on the side of the road he was in bad condition those who found"
+                            + "him were a bunch of merchants that were on their way to the capital of the nation they took"
+                            + "him to the nearest medic they found and as a payment they took his sword and went on"
+                            + "their way.", AnsiColor.ITALIC);
+        });
+        room.setOptions(
+            new Option("Continue...", () -> {
+                // sotoryRoom2().start();
+            })
+        );
         return room;
     }
 }
