@@ -157,9 +157,100 @@ public class RoomsConstructor {
         });
         room.setOptions(
             new Option("Continue...", () -> {
-                // storyRoom3().start();
+                 storyRoom3().start();
             })
         );
         return room;
     }
+
+    public Room storyRoom3(){
+        Room room = new Room();
+        room.setEvent(()->{
+            Utilities.print(
+                    "Aban decided to follow the merchants that rescued him to take his sword back "
+                    +"It was the only thing that he truly owned and cherished so he went on his way to the capital "
+                    ,AnsiColor.ITALIC); 
+
+                    room.setOptions(
+                        new Option("Continue...", () -> {
+                             stage1Room().start();
+                        })
+                    );
+
+
+        });
+        return room;
+    }
+
+        public Room stage1Room(){
+            Room room = new Room();
+            room.setEvent(()->{
+                Utilities.print(
+                    "Aban finds an old man on the rode" 
+                    +"the old Man asks for help regarding a bear that is residing in the old man's farm and offer to pay aban to kill the bear aban kills the bear"
+
+                    // here there should be a fight
+                    +"you kill the bear."
+                    +"The Old man offers you his last bag of money as a Reward"
+                    ,AnsiColor.ITALIC);
+
+                
+            });  room.setOptions(
+                // option 1 
+                new Option("Take the money",() ->{
+
+                    System.out.println("You took the money for your self");
+                    stage2Room().start();
+
+                
+
+                }),
+                //option 2
+                new Option("Refuse the money",() ->{
+
+                    System.out.println("You left the money for the old man.");
+                    stage2Room().start();
+        })
+            ); 
+            return room; 
+    }
+    
+
+        public Room stage2Room(){
+            Room room = new Room();
+            room.setEvent( () ->{
+                Utilities.print(
+                    "Aban decided to rest in a coastal town on his way to the capital."
+                    +" at night the town was hit by a storm. "
+                    +" a little girl ask him for help To find her older brother Aban found the brother in a bandit camp. "
+                    //Fight
+                    +"you kill the kidnappers and rescue him",
+                    AnsiColor.ITALIC);
+                    room.setOptions(
+                        new Option("accompany them to the town",() ->{
+                            System.out.println("you accompaned them to the town.");
+                            //stage3Room().start()
+
+                        
+                        }),
+                        new Option("leave them to go back alone",() ->{
+                            System.out.println("you left them and contenude to the capital");
+                            //stage3Room().start()
+
+                        })
+                        
+                    );  
+            });
+        return room; 
+        } 
+        
+        
+
+
+
+
+
+
+
+
 }
