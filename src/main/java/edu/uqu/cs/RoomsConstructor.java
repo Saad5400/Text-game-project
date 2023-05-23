@@ -145,4 +145,28 @@ public class RoomsConstructor {
         );
         return room;
     }
+
+    public Room storyRoom2() {
+        Room room = new Room();
+        room.setEvent(() -> {
+            Utilities.print(
+                    "a week later Aban woke up tired angry and sad he was in misery he was told about what"
+                            + "happened by the doctor Aban didn't totally forget what happened before he was found but it"
+                            + "was all fussy, he wasn't truly out of the war yet"
+                            , AnsiColor.ITALIC);
+        });
+        room.setOptions(
+            new Option("Continue...", () -> {
+                // sotoryRoom2().start();
+            })
+        );
+        return room;
+    }
+
+
+
+
+
+
+
 }
