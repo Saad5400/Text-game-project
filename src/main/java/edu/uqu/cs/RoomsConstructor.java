@@ -214,7 +214,7 @@ public class RoomsConstructor {
             ); 
             return room; 
     }
-    
+
 
         public Room stage2Room(){
             Room room = new Room();
@@ -229,13 +229,13 @@ public class RoomsConstructor {
                     room.setOptions(
                         new Option("accompany them to the town",() ->{
                             System.out.println("you accompaned them to the town.");
-                            //stage3Room().start()
+                            stage3Room().start();
 
                         
                         }),
                         new Option("leave them to go back alone",() ->{
                             System.out.println("you left them and contenude to the capital");
-                            //stage3Room().start()
+                            stage3Room().start();
 
                         })
                         
@@ -244,6 +244,70 @@ public class RoomsConstructor {
         return room; 
         } 
         
+        
+    public Room stage3Room(){
+        Room room = new Room();
+        room.setEvent(()->{
+            Utilities.print(
+                "Aban hear’s about a rich farmer that needed help with Something and offering a large reward in return"
+                +"The reward was a small land not to big but enough for one small family "
+                +"Aban takes the job "
+
+                //Fight
+                +"Aban dose it perfect it wasn't more than a few rogue soldiers but as a consequence the sword he borrowed was broken",
+                AnsiColor.ITALIC);
+                room.setOptions(
+                    new Option("demand the reward to be in gold",() ->{
+
+                        System.out.println("You took 1 bag of gold enoght to fix your sword");
+                        finalstageRoom().start();
+
+                    
+                    }),
+                    new Option("take the land",() ->{
+
+                         System.out.println("You took the land in hope that you use it in the fututer ");
+                         System.out.println("You bowrrod some money to fix the sword.");
+                         finalstageRoom().start();
+                    
+                        })
+                );
+  
+        });
+        return room;
+        
+     }
+
+     public Room finalstageRoom(){
+        Room room = new Room();
+        room.setEvent(()->{
+            Utilities.print(
+                "Aban reaches the capital and start his search for the merchants that took his sword"
+                +"Aban found out that the merchants were near the riverside looking for Something "
+                +"Aban confronted them to no one surprise they had powerful mercenary guarding them"
+                
+                //Final Boss
+                +" aban is president an offer by the mercenary after he wins to join his group"
+                
+
+                /*  :The ending depends on the player’s choices
+                      :If most of the choices are B
+                           Aban refuses the offer and decides to spear the merchants and decides to settle and start over.
+ 
+                      :If most of the choices are A
+                           Aban accepts the mercenary offer then kills the merchants and take his sword back choosing to continue to live as a soldier.
+ 
+                 */
+            );
+
+        
+            
+        });
+
+
+
+        return room;
+     }
         
 
 
