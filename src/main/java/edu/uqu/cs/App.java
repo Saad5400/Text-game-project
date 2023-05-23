@@ -51,11 +51,12 @@ public class App {
     public static void main(String[] args) {
 
         // Go to RoomsConstructer.java to see how this works
-        ArrayList<Room> rooms = new RoomsConstructor().rooms;
+        RoomsConstructor rc = new RoomsConstructor();
+        ArrayList<Room> rooms = rc.rooms;
 
         // starting the first room
         // got to rooms/Room.java and see the start method
-        rooms.get(getLastPlayedRoom()).start();
+        rc.storyRoom1().start();
     }
 
 }
