@@ -129,7 +129,7 @@ public class RoomsConstructor {
         return room;
     }
 
-    public Room sotoryRoom1() {
+    public Room storyRoom1() {
         Room room = new Room();
         room.setEvent(() -> {
             Utilities.print(
