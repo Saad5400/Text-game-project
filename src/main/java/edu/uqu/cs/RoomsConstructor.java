@@ -65,6 +65,7 @@ public class RoomsConstructor {
 
                     System.out.println("You went back...");
                     createStartRoom().start();
+
                 }),
                 new Option("Fight the skeleton", () -> {
 
