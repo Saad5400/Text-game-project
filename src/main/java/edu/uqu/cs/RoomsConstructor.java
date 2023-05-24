@@ -77,28 +77,42 @@ public class RoomsConstructor {
                     Random random = new Random();
                     
                     Scanner scnr = new Scanner(System.in);
-                    Utilities.print("You should enter a number between 1 to 3: ", AnsiColor.RED);
                     
 
                     for (int i = 0; i <= 30; i++) {
                         /* */
+                        Utilities.print("You should enter a number between 1 to 3: ", AnsiColor.RED);
+                    
                         int answer = random.nextInt(3) + 1;
                         int input = scnr.nextInt();
+
                         if (input == answer) {
-                            Utilities.print("your damage the skeleton\n");
-                            App.player.health -= 40;
+                            Utilities.print("your damage the skeleton ");
+                            Utilities.print("40\n",AnsiColor.GREEN);
+
+                            skeleton.health -= App.player.attackDamage;
+
+                            if(skeleton.health > 0) {
+                                Utilities.print(skeleton.health + "\n",AnsiColor.RED);
+                            }
                         } 
                         else if(input != answer){
-                            Utilities.print("your damaged by skeleton\n");
-                            skeleton.health -= App.player.attackDamage;
+                            Utilities.print("your damaged by skeleton ");
+                            Utilities.print("40\n",AnsiColor.RED);
+
+                            App.player.health -= skeleton.attackDamage;
+
+                            if(skeleton.health > 0) { 
+                                Utilities.print(App.player.health + "\n",AnsiColor.GREEN);
+                            }
                         }
                          if(App.player.health <= 0) {
                             i = 50;
-                            Utilities.print("you killed the skeleton\n", AnsiColor.GREEN);
+                            Utilities.print("you dead\n", AnsiColor.RED);
                         }
                         
                         if(skeleton.health <= 0){
-                            Utilities.print("you dead\n");
+                            Utilities.print("you killed the skeleton\n",AnsiColor.GREEN);
                             i = 50;
                        }
                         
