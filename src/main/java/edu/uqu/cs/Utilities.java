@@ -53,15 +53,20 @@ public class Utilities {
     }
 
     // default delay between printing characters
-    public static final int DEFAULT_DELAY = 25;
+    public static final int DEFAULT_DELAY = 15;
 
     // print a string with a delay between each character
     public static void print(String s, String color, int delay, Object ... args) {
         String formatted = String.format(s, args);
+        double currentDelay = delay;
+        double minDelay = 3;
         setColor(color);
         for (Character ch : formatted.toCharArray()) {
             System.out.print(ch);
-            sleep(delay);
+            sleep((int)currentDelay);
+            if (currentDelay > minDelay) {
+                currentDelay -= 0.05;
+            }
         }
         resetColor();
     }
