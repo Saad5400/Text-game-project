@@ -187,7 +187,8 @@ public class RoomsConstructor {
             room.setEvent(()->{
                 Utilities.print(
                     "Aban finds an old man on the rode" 
-                    +"the old Man asks for help regarding a bear that is residing in the old man's farm and offer to pay aban to kill the bear aban kills the bear"
+                    +"the old Man asks for help regarding a bear that is residing in the old man's farm"
+                    +" and offer to pay aban to kill the bear aban kills the bear"
 
                     // here there should be a fight
                     +"you kill the bear."
@@ -220,9 +221,10 @@ public class RoomsConstructor {
             Room room = new Room();
             room.setEvent( () ->{
                 Utilities.print(
-                    "Aban decided to rest in a coastal town on his way to the capital."
+                    "Aban decided to rest in a coastal town on his way to the capital"
                     +" at night the town was hit by a storm. "
-                    +" a little girl ask him for help To find her older brother Aban found the brother in a bandit camp. "
+                    +" a little girl ask him for help To find her older brother" 
+                    +"Aban found the brother in a bandit camp. "
                     //Fight
                     +"you kill the kidnappers and rescue him",
                     AnsiColor.ITALIC);
@@ -260,7 +262,7 @@ public class RoomsConstructor {
                     new Option("demand the reward to be in gold",() ->{
 
                         System.out.println("You took 1 bag of gold enoght to fix your sword");
-                        finalstageRoom().start();
+                        //finalstageRoom().start();
 
                     
                     }),
@@ -268,7 +270,7 @@ public class RoomsConstructor {
 
                          System.out.println("You took the land in hope that you use it in the fututer ");
                          System.out.println("You bowrrod some money to fix the sword.");
-                         finalstageRoom().start();
+                         //finalstageRoom().start();
                     
                         })
                 );
