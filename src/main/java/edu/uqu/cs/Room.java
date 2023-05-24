@@ -43,9 +43,6 @@ public class Room {
         event.run();
         // loop for each option and print its text
         for (int i = 0; i < options.size(); i++) {
-
-            Utilities.print();
-            Utilities.print();
             Utilities.print((i+1) + ". " + options.get(i).text, AnsiColor.CYAN);
             Utilities.print();
         }
