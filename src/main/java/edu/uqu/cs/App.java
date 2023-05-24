@@ -56,7 +56,7 @@ public class App {
 
         // starting the first room
         // got to rooms/Room.java and see the start method
-        rc.storyRoom1().start();
+        rc.createGardenRoom().start();
     }
 
 }
