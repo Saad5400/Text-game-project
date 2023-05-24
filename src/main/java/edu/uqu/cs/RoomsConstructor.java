@@ -69,12 +69,9 @@ public class RoomsConstructor {
                 }),
                 new Option("Fight the skeleton", () -> {
 
-                    App.player.health -= 10;
-                    if (App.player.health <= 0) {
-                        // Player is dead
-                    }
+                    
                     Enemy skeleton = new Enemy("Skeleton", 100.0, 40.0);
-                    skeleton.health -= App.player.attackDamage;
+                   
 
                     Utilities.print("Fight started...\n");
                     Random random = new Random();
@@ -91,16 +88,17 @@ public class RoomsConstructor {
                             Utilities.print("your damage the skeleton\n");
                             App.player.health -= 40;
                         } 
-                         if(App.player.health <= 0) {
-                            i = 50;
-                            Utilities.print("you kill the skeleton\n", AnsiColor.GREEN);
-                        }
                         else if(input != answer){
                             Utilities.print("your damaged by skeleton\n");
                             skeleton.health -= App.player.attackDamage;
                         }
+                         if(App.player.health <= 0) {
+                            i = 50;
+                            Utilities.print("you killed the skeleton\n", AnsiColor.GREEN);
+                        }
+                        
                         if(skeleton.health <= 0){
-                            Utilities.print("you kill the skeleton\n");
+                            Utilities.print("you dead\n");
                             i = 50;
                        }
                         
@@ -143,10 +141,10 @@ public class RoomsConstructor {
         Room room = new Room();
         room.setEvent(() -> {
             Utilities.print(
-                    "Aban is found unconscious on the side of the road he was in bad condition those who found"
+                    "\nAban is found unconscious on the side of the road he was in bad condition those who found"
                             + "him were a bunch of merchants that were on their way to the capital of the nation they took"
                             + "him to the nearest medic they found and as a payment they took his sword and went on"
-                            + "their way.",
+                            + "their way.\n",
                     AnsiColor.ITALIC);
         });
         room.setOptions(
@@ -160,9 +158,9 @@ public class RoomsConstructor {
         Room room = new Room();
         room.setEvent(() -> {
             Utilities.print(
-                    "a week later Aban woke up tired angry and sad he was in misery he was told about what"
+                    "\na week later Aban woke up tired angry and sad he was in misery he was told about what"
                             + "happened by the doctor Aban didn't totally forget what happened before he was found but it"
-                            + "was all fussy, he wasn't truly out of the war yet",
+                            + "was all fussy, he wasn't truly out of the war yet\n",
                     AnsiColor.ITALIC);
         });
         room.setOptions(
@@ -176,8 +174,8 @@ public class RoomsConstructor {
         Room room = new Room();
         room.setEvent(() -> {
             Utilities.print(
-                    "Aban decided to follow the merchants that rescued him to take his sword back "
-                            + "It was the only thing that he truly owned and cherished so he went on his way to the capital ",
+                    "\nAban decided to follow the merchants that rescued him to take his sword back "
+                            + "It was the only thing that he truly owned and cherished so he went on his way to the capital\n",
                     AnsiColor.ITALIC);
 
             room.setOptions(
@@ -193,9 +191,9 @@ public class RoomsConstructor {
         Room room = new Room();
         room.setEvent(() -> {
             Utilities.print(
-                    "Aban finds an old man on the rode"
+                    "\nAban finds an old man on the rode"
                             + "the old Man asks for help regarding a bear that is residing in the old man's farm"
-                            + " and offer to pay aban to kill the bear aban kills the bear"
+                            + " and offer to pay aban to kill the bear aban kills the bear\n"
 
             // here there should be a fight
                             + "you kill the bear."
@@ -224,12 +222,12 @@ public class RoomsConstructor {
         Room room = new Room();
         room.setEvent(() -> {
             Utilities.print(
-                    "Aban decided to rest in a coastal town on his way to the capital"
+                    "\nAban decided to rest in a coastal town on his way to the capital"
                             + " at night the town was hit by a storm. "
                             + " a little girl ask him for help To find her older brother"
                             + "Aban found the brother in a bandit camp. "
             // Fight
-                            + "you kill the kidnappers and rescue him",
+                            + "you kill the kidnappers and rescue him\n",
                     AnsiColor.ITALIC);
             room.setOptions(
                     new Option("accompany them to the town", () -> {
@@ -252,9 +250,9 @@ public class RoomsConstructor {
         Room room = new Room();
         room.setEvent(() -> {
             Utilities.print(
-                    "Aban hear’s about a rich farmer that needed help with Something and offering a large reward in return"
+                    "\nAban hear’s about a rich farmer that needed help with Something and offering a large reward in return"
                             + "The reward was a small land not to big but enough for one small family "
-                            + "Aban takes the job "
+                            + "Aban takes the job\n"
 
             // Fight
                             + "Aban dose it perfect it wasn't more than a few rogue soldiers but as a consequence the sword he borrowed was broken",
@@ -283,12 +281,12 @@ public class RoomsConstructor {
         Room room = new Room();
         room.setEvent(() -> {
             Utilities.print(
-                    "Aban reaches the capital and start his search for the merchants that took his sword"
+                    "\nAban reaches the capital and start his search for the merchants that took his sword"
                             + "Aban found out that the merchants were near the riverside looking for Something "
                             + "Aban confronted them to no one surprise they had powerful mercenary guarding them"
 
             // Final Boss
-                            + " aban is president an offer by the mercenary after he wins to join his group"
+                            + " aban is president an offer by the mercenary after he wins to join his group\n"
 
             /*
              * :The ending depends on the player’s choices
