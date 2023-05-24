@@ -9,6 +9,7 @@
 - سلطان الشهري [@RExer9006]
 - جواد الحربي [@JawadAlharbi]
 - ريان أديب [@rayanAdeb]
+- عبدالعزيز القرشي [@Abdulaziz_Alqurashi]
 
 # Project description 
 
