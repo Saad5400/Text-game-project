@@ -52,11 +52,23 @@ public class App {
 
         // Go to RoomsConstructer.java to see how this works
         RoomsConstructor rc = new RoomsConstructor();
-        ArrayList<Room> rooms = rc.rooms;
+
+        Room[] rooms = {
+                rc.createStartRoom(), // 0
+                rc.exploreCastleRoom(), // 1
+                rc.createGardenRoom(), // 2
+                rc.storyRoom1(), // 3
+                rc.storyRoom2(), // 4
+                rc.storyRoom3(), // 5
+                rc.stage1Room(), // 6
+                rc.stage2Room(), // 7
+                rc.stage3Room(), // 8
+                rc.finalstageRoom(), // 9
+        };
 
         // starting the first room
         // got to rooms/Room.java and see the start method
-        rc.createGardenRoom().start();
+        rooms[getLastPlayedRoom()].start();
     }
 
 }

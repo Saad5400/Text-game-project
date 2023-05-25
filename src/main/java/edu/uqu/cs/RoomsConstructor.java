@@ -9,16 +9,6 @@ import edu.uqu.cs.characters.*;
 
 public class RoomsConstructor {
 
-    // This list will store all the rooms
-    public ArrayList<Room> rooms = new ArrayList<Room>();
-
-    public RoomsConstructor() {
-        // create a room and add it to the list
-        // each room can be created from a method that returns a new object of type Room
-        rooms = new ArrayList<Room>(Utilities.asList(
-                createStartRoom(), createGardenRoom(), exploreCastleRoom()));
-    }
-
     // example room
     public Room createStartRoom() {
         // first create the object
@@ -47,7 +37,7 @@ public class RoomsConstructor {
                     System.out.println("You are exploring the castle...");
                     exploreCastleRoom().start();
                 }));
-
+        App.setLastPlayedRoom(0);
         return room;
     }
 
@@ -120,7 +110,7 @@ public class RoomsConstructor {
                     
                     }
                 }));
-
+        App.setLastPlayedRoom(1);
         return room;
     }
 
@@ -148,6 +138,7 @@ public class RoomsConstructor {
 
                 }));
 
+        App.setLastPlayedRoom(2);
         return room;
     }
 
@@ -165,6 +156,7 @@ public class RoomsConstructor {
                 new Option("Continue...", () -> {
                     storyRoom2().start();
                 }));
+        App.setLastPlayedRoom(3);
         return room;
     }
 
@@ -181,6 +173,7 @@ public class RoomsConstructor {
                 new Option("Continue...", () -> {
                     storyRoom3().start();
                 }));
+        App.setLastPlayedRoom(4);
         return room;
     }
 
@@ -198,6 +191,7 @@ public class RoomsConstructor {
                     }));
 
         });
+        App.setLastPlayedRoom(5);
         return room;
     }
 
@@ -229,6 +223,7 @@ public class RoomsConstructor {
                     System.out.println("You left the money for the old man.");
                     stage2Room().start();
                 }));
+        App.setLastPlayedRoom(6);
         return room;
     }
 
@@ -257,6 +252,7 @@ public class RoomsConstructor {
 
             );
         });
+        App.setLastPlayedRoom(7);
         return room;
     }
 
@@ -287,6 +283,7 @@ public class RoomsConstructor {
                     }));
 
         });
+        App.setLastPlayedRoom(8);
         return room;
 
     }
@@ -316,7 +313,7 @@ public class RoomsConstructor {
             );
 
         });
-
+        App.setLastPlayedRoom(9);
         return room;
     }
 
