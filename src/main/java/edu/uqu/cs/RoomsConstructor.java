@@ -14,6 +14,7 @@ public class RoomsConstructor {
         // first create the object
         Room room = new Room();
         room.setEvent(() -> {
+            App.setLastPlayedRoom(0);
             Utilities.print("You just woke up in a dark and empty castle!\n\n", AnsiColor.GREEN);
         });
         // set its message
@@ -37,7 +38,6 @@ public class RoomsConstructor {
                     System.out.println("You are exploring the castle...");
                     exploreCastleRoom().start();
                 }));
-        App.setLastPlayedRoom(0);
         return room;
     }
 
@@ -45,6 +45,7 @@ public class RoomsConstructor {
         Room room = new Room();
 
         room.setEvent(() -> {
+            App.setLastPlayedRoom(1);
             Utilities.print("You are out in the garden!\n\n", AnsiColor.GREEN);
         });
         // room.setMessage("You are out in the garden!");
@@ -110,7 +111,6 @@ public class RoomsConstructor {
                     
                     }
                 }));
-        App.setLastPlayedRoom(1);
         return room;
     }
 
@@ -118,6 +118,7 @@ public class RoomsConstructor {
         Room room = new Room();
 
         room.setEvent(() -> {
+            App.setLastPlayedRoom(2);
             Utilities.print("You are in the castle!\n\n", AnsiColor.GREEN);
         });
         // room.setMessage("You are in the castle");
@@ -138,13 +139,13 @@ public class RoomsConstructor {
 
                 }));
 
-        App.setLastPlayedRoom(2);
         return room;
     }
 
     public Room storyRoom1() {
         Room room = new Room();
         room.setEvent(() -> {
+            App.setLastPlayedRoom(3);
             Utilities.print(
                     "\nAban is found unconscious on the side of the road he was in bad condition those who found"
                             + "him were a bunch of merchants that were on their way to the capital of the nation they took"
@@ -156,13 +157,13 @@ public class RoomsConstructor {
                 new Option("Continue...", () -> {
                     storyRoom2().start();
                 }));
-        App.setLastPlayedRoom(3);
         return room;
     }
 
     public Room storyRoom2() {
         Room room = new Room();
         room.setEvent(() -> {
+            App.setLastPlayedRoom(4);
             Utilities.print(
                     "\na week later Aban woke up tired angry and sad he was in misery he was told about what"
                             + "happened by the doctor Aban didn't totally forget what happened before he was found but it"
@@ -173,13 +174,13 @@ public class RoomsConstructor {
                 new Option("Continue...", () -> {
                     storyRoom3().start();
                 }));
-        App.setLastPlayedRoom(4);
         return room;
     }
 
     public Room storyRoom3() {
         Room room = new Room();
         room.setEvent(() -> {
+            App.setLastPlayedRoom(5);
             Utilities.print(
                     "\nAban decided to follow the merchants that rescued him to take his sword back "
                             + "It was the only thing that he truly owned and cherished so he went on his way to the capital\n",
@@ -191,13 +192,13 @@ public class RoomsConstructor {
                     }));
 
         });
-        App.setLastPlayedRoom(5);
         return room;
     }
 
     public Room stage1Room() {
         Room room = new Room();
         room.setEvent(() -> {
+            App.setLastPlayedRoom(6);
             Utilities.print(
                     "\nAban finds an old man on the rode"
                             + "the old Man asks for help regarding a bear that is residing in the old man's farm"
@@ -223,13 +224,13 @@ public class RoomsConstructor {
                     System.out.println("You left the money for the old man.");
                     stage2Room().start();
                 }));
-        App.setLastPlayedRoom(6);
         return room;
     }
 
     public Room stage2Room() {
         Room room = new Room();
         room.setEvent(() -> {
+            App.setLastPlayedRoom(7);
             Utilities.print(
                     "\nAban decided to rest in a coastal town on his way to the capital"
                             + " at night the town was hit by a storm. "
@@ -252,13 +253,13 @@ public class RoomsConstructor {
 
             );
         });
-        App.setLastPlayedRoom(7);
         return room;
     }
 
     public Room stage3Room() {
         Room room = new Room();
         room.setEvent(() -> {
+            App.setLastPlayedRoom(8);
             Utilities.print(
                     "\nAban hear’s about a rich farmer that needed help with Something and offering a large reward in return"
                             + "The reward was a small land not to big but enough for one small family "
@@ -283,7 +284,6 @@ public class RoomsConstructor {
                     }));
 
         });
-        App.setLastPlayedRoom(8);
         return room;
 
     }
@@ -291,6 +291,7 @@ public class RoomsConstructor {
     public Room finalstageRoom() {
         Room room = new Room();
         room.setEvent(() -> {
+            App.setLastPlayedRoom(9);
             Utilities.print(
                     "\nAban reaches the capital and start his search for the merchants that took his sword"
                             + "Aban found out that the merchants were near the riverside looking for Something "
@@ -313,7 +314,6 @@ public class RoomsConstructor {
             );
 
         });
-        App.setLastPlayedRoom(9);
         return room;
     }
 
