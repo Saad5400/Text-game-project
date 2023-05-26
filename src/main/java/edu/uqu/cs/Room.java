@@ -41,6 +41,21 @@ public class Room {
         // it's very similiar to printf, but it will print in colors and add a typing effect
         // see Utilities.java
         event.run();
+
+        // add an option for exiting the game
+        options.add(new Option("Close the game", () -> {
+            Utilities.print("Are you sure you want to exit? (y/n): ", AnsiColor.BLUE);
+            String choice = App.scanner.next();
+            if (choice.equalsIgnoreCase("y")) {
+                Utilities.print("Goodbye!", AnsiColor.RED);
+                System.exit(0);
+            }
+            options.remove(options.size()-1);
+            start();
+        }));
+        // print the options with cyan color
+        Utilities.print("Options:", AnsiColor.BRIGHT_CYAN_BACKGROUND);
+        Utilities.print();
         // loop for each option and print its text
         for (int i = 0; i < options.size(); i++) {
             Utilities.print((i+1) + ". " + options.get(i).text, AnsiColor.CYAN);
