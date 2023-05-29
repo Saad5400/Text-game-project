@@ -215,9 +215,30 @@ public class RoomsConstructor {
             Utilities.print(
                     "\nAban finds an old man on the rode "
                             + "the old Man asks for help regarding a bear that is residing in the old man's farm "
-                            + " and offer to pay aban to kill the bear aban kills the bear\n"
-            // here there should be a fight
-                            + "you killed the bear.\n"
+                            + " and offer to pay aban to kill the bear aban kills the bear\n\n",
+                    AnsiColor.ITALIC);
+
+            // here should be a fight
+                        Utilities.print(
+                    " .'\"'.        ___,,,___        .'``.\r\n" + //
+                            ": (\\  `.\"'\"```         ```\"'\"-'  /) ;\r\n" + //
+                            " :  \\                         `./  .'\r\n" + //
+                            "  `.                            :.'\r\n" + //
+                            "    /        _         _        \\\r\n" + //
+                            "   |         0}       {0         |\r\n" + //
+                            "   |         /         \\         |\r\n" + //
+                            "   |        /           \\        |\r\n" + //
+                            "   |       /             \\       |\r\n" + //
+                            "    \\     |      .-.      |     /\r\n" + //
+                            "     `.   | . . /   \\ . . |   .'\r\n" + //
+                            "       `-._\\.'.(     ).'./_.-'\r\n" + //
+                            "           `\\'  `._.'  '/'\r\n" + //
+                            "             `. --'-- .'\r\n" + //
+                            "               `-...-'\n\n",
+                    AnsiColor.BRIGHT_RED, 1, new Object[0]);
+
+            Utilities.print(
+                    "You killed the bear.\n"
                             + "The Old man offers you his last bag of money as a Reward\n\n",
                     AnsiColor.ITALIC);
 
