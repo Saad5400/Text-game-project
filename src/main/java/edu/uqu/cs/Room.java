@@ -81,6 +81,18 @@ public class Room {
         // see Utilities.java
         event.run();
 
+        
+        options.add(new Option("Reload last checkpoint", () -> {
+            Utilities.print("Are you sure you want to reload the last checkpoint? (y/n): ", AnsiColor.BLUE);
+            String choice = App.scanner.next();
+            if (choice.equalsIgnoreCase("y")) {
+                App.setLastPlayedRoom(App.getLastPlayedRoom() - 1);
+                Utilities.print("Please restart the game.");
+                System.exit(0);
+            }
+            options.remove(options.size() - 1);
+            start();
+        }));
         // add an option for exiting the game
         options.add(new Option("Close the game", () -> {
             Utilities.print("Are you sure you want to exit? (y/n): ", AnsiColor.BLUE);

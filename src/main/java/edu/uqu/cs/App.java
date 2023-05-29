@@ -40,6 +40,9 @@ public class App {
                 // read the file and get the last played room
                 Scanner fileScanner = new Scanner(file);
                 int lastPlayedRoom = fileScanner.nextInt();
+                if (lastPlayedRoom < 0) {
+                    lastPlayedRoom = 0;
+                }
                 fileScanner.close();
                 return lastPlayedRoom;
             }
@@ -80,16 +83,13 @@ public class App {
         RoomsConstructor rc = new RoomsConstructor();
 
         Room[] rooms = {
-                rc.createStartRoom(), // 0
-                rc.exploreCastleRoom(), // 1
-                rc.createGardenRoom(), // 2
-                rc.storyRoom1(), // 3
-                rc.storyRoom2(), // 4
-                rc.storyRoom3(), // 5
-                rc.stage1Room(), // 6
-                rc.stage2Room(), // 7
-                rc.stage3Room(), // 8
-                rc.finalstageRoom(), // 9
+                rc.storyRoom1(),
+                rc.storyRoom2(),
+                rc.storyRoom3(),
+                rc.stage1Room(),
+                rc.stage2Room(),
+                rc.stage3Room(),
+                rc.finalstageRoom(),
         };
 
         // starting the first room
