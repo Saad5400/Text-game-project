@@ -1,7 +1,14 @@
 package edu.uqu.cs.characters;
 
 /**
- * An abstract class representing a character in the game.
+ * Character is the abstract base class for all game characters
+ * which allows for creating multiple game characters
+ * including players and enemies
+ * A character encapsulates the state information needed for the various
+ * game operations supported in the current version such as
+ * character health based on attacks
+ * @author Glitched Eagles
+ * @version 1.0
  */
 public abstract class Character {
 
