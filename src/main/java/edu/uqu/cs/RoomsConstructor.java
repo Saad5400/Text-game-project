@@ -7,8 +7,9 @@ import java.util.Scanner;
 import edu.uqu.cs.Utilities.AnsiColor;
 import edu.uqu.cs.characters.*;
 
-/*
- * This class is responsible for creating the rooms and their options
+/**
+ * This class is responsible for creating the rooms and their options.
+ * It contains methods for creating different types of rooms and setting their options.
  */
 public class RoomsConstructor {
 
@@ -43,7 +44,7 @@ public class RoomsConstructor {
                 }));
         return room;
     }
-
+    
     public Room createGardenRoom() {
         Room room = new Room();
 

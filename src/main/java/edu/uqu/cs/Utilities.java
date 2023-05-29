@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public class Utilities {
 
-    /*
+    /**
      * This class contains ANSI escape codes for changing the color of text in the
      * console. See https://en.wikipedia.org/wiki/ANSI_escape_code for more
      * information.
@@ -59,7 +59,7 @@ public class Utilities {
         public static final String BRIGHT_WHITE_BACKGROUND = "\u001B[107m";
     }
 
-    /*
+    /**
      * The default delay between each character when printing a string.
      */
     public static final int DEFAULT_DELAY = 15;
@@ -164,6 +164,7 @@ public class Utilities {
      * Converts an array of objects to an ArrayList of the same objects using
      * generics.
      * 
+     * @param <T> the type of the objects in the array
      * @param a the array of objects to convert
      * @return an ArrayList of the same objects
      */
