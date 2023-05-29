@@ -76,7 +76,18 @@ public class Utilities {
      * @param args  the arguments to use for formatting the string
      */
     public static void print(String s, String color, int delay, Object... args) {
-        // implementation details omitted
+        String formatted = String.format(s, args);
+        double currentDelay = delay;
+        double minDelay = 3;
+        setColor(color);
+        for (Character ch : formatted.toCharArray()) {
+            System.out.print(ch);
+            sleep((int) currentDelay);
+            if (currentDelay > minDelay) {
+                currentDelay -= 0.05;
+            }
+        }
+        resetColor();
     }
 
     /**
