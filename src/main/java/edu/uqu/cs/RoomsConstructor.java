@@ -7,6 +7,9 @@ import java.util.Scanner;
 import edu.uqu.cs.Utilities.AnsiColor;
 import edu.uqu.cs.characters.*;
 
+/*
+ * This class is responsible for creating the rooms and their options
+ */
 public class RoomsConstructor {
 
     // example room

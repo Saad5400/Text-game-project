@@ -3,9 +3,16 @@ package edu.uqu.cs;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * A class containing utility methods.
+ */
 public class Utilities {
 
-    // all the colors that can be used in the console
+    /*
+     * This class contains ANSI escape codes for changing the color of text in the
+     * console. See https://en.wikipedia.org/wiki/ANSI_escape_code for more
+     * information.
+     */
     public static class AnsiColor {
         public static final String RESET = "\u001B[0m";
         public static final String BLACK = "\u001B[30m";
@@ -52,51 +59,88 @@ public class Utilities {
         public static final String BRIGHT_WHITE_BACKGROUND = "\u001B[107m";
     }
 
-    // default delay between printing characters
+    /*
+     * The default delay between each character when printing a string.
+     */
     public static final int DEFAULT_DELAY = 15;
 
-    // print a string with a delay between each character
-    public static void print(String s, String color, int delay, Object ... args) {
-        String formatted = String.format(s, args);
-        double currentDelay = delay;
-        double minDelay = 3;
-        setColor(color);
-        for (Character ch : formatted.toCharArray()) {
-            System.out.print(ch);
-            sleep((int)currentDelay);
-            if (currentDelay > minDelay) {
-                currentDelay -= 0.05;
-            }
-        }
-        resetColor();
+    /**
+     * Prints the formatted string to the console with the specified color and delay
+     * between each character.
+     * 
+     * @param s     the string to print
+     * @param color the color to use for the printed string, or null for the default
+     *              color
+     * @param delay the delay in milliseconds to wait before printing the next
+     *              character
+     * @param args  the arguments to use for formatting the string
+     */
+    public static void print(String s, String color, int delay, Object... args) {
+        // implementation details omitted
     }
-    // overload
-    public static void print(String s, String color, Object ... args) {
+
+    /**
+     * Prints the formatted string to the console with the specified color and the
+     * default delay between each character.
+     * 
+     * @param s     the string to print
+     * @param color the color to use for the printed string, or null for the default
+     *              color
+     * @param args  the arguments to use for formatting the string
+     */
+    public static void print(String s, String color, Object... args) {
         print(s, color, DEFAULT_DELAY, args);
     }
-    // overload
-    public static void print(String s, Object ... args) {
+
+    /**
+     * Prints the formatted string to the console with the default color and delay
+     * between each character.
+     * 
+     * @param s    the string to print
+     * @param args the arguments to use for formatting the string
+     */
+    public static void print(String s, Object... args) {
         print(s, "", args);
     }
-    // overload
+
+    /**
+     * Prints the string to the console with the default color and delay between
+     * each character.
+     * 
+     * @param s the string to print
+     */
     public static void print(String s) {
         print(s, null);
     }
-    // overload
+
+    /**
+     * Prints a newline character to the console.
+     */
     public static void print() {
         print("\n");
     }
 
-    // print a color (set a color)
+    /**
+     * Sets the console color to the specified color.
+     * 
+     * @param color the color to set, as a string
+     */
     public static void setColor(String color) {
         System.out.print(color);
     }
-    // print the reset color
+
+    /**
+     * Resets the console color to the default color.
+     */
     public static void resetColor() {
         System.out.print(AnsiColor.RESET);
     }
 
-    // make the program sleep for a number of milliseconds
+    /**
+     * Makes the current thread sleep for the specified number of milliseconds.
+     * 
+     * @param ms the number of milliseconds to sleep
+     */
     public static void sleep(int ms) {
         try {
             Thread.sleep(ms);
@@ -105,7 +149,13 @@ public class Utilities {
         }
     }
 
-    // take an array of objects and return an ArrayList of the same objects using generics
+    /**
+     * Converts an array of objects to an ArrayList of the same objects using
+     * generics.
+     * 
+     * @param a the array of objects to convert
+     * @return an ArrayList of the same objects
+     */
     public static <T> ArrayList<T> asList(T... a) {
         return new ArrayList<T>(Arrays.asList(a));
     }

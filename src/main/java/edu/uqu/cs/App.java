@@ -3,20 +3,36 @@ package edu.uqu.cs;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import edu.uqu.cs.Utilities.AnsiColor;
 import edu.uqu.cs.characters.Player;
 
+/**
+ * The main class of the game.
+ */
 public class App {
 
+    /**
+     * The scanner used to read input from the user.
+     */
     public static Scanner scanner = new Scanner(System.in);
 
+    /**
+     * The player object representing the user in the game.
+     */
     public static Player player = new Player();
 
+    /**
+     * The name of the file used to store the last played room.
+     */
     private final static String SAVE_FILE_NAME = "save.txt";
 
+    /**
+     * Gets the index of the last played room from the save file.
+     *
+     * @return the index of the last played room, or 0 if the save file does not exist or is empty
+     */
     public static int getLastPlayedRoom() {
         try {
             File file = new File(SAVE_FILE_NAME);
@@ -34,6 +50,11 @@ public class App {
         return 0;
     }
 
+    /**
+     * Sets the index of the last played room in the save file.
+     *
+     * @param roomIndex the index of the last played room
+     */
     public static void setLastPlayedRoom(int roomIndex) {
         try {
             File file = new File(SAVE_FILE_NAME);
@@ -48,6 +69,11 @@ public class App {
         }
     }
 
+    /**
+     * The main method of the game.
+     *
+     * @param args the command line arguments (not used)
+     */
     public static void main(String[] args) {
 
         // Go to RoomsConstructer.java to see how this works
