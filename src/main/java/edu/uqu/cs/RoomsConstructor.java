@@ -261,6 +261,11 @@ public class RoomsConstructor {
         return room;
     }
 
+    /**
+     * Creats stage 2 room when the player reaches the second stage.
+     * 
+     * @return room object representing the second stage room
+     */
     public Room stage2Room() {
         Room room = new Room();
         room.setEvent(() -> {
@@ -290,6 +295,11 @@ public class RoomsConstructor {
         return room;
     }
 
+    /**
+     * Creats stage 3 room when the player reaches the third stage.
+     * 
+     * @return room object representing the third stage room
+     */
     public Room stage3Room() {
         Room room = new Room();
         room.setEvent(() -> {
@@ -322,6 +332,11 @@ public class RoomsConstructor {
 
     }
 
+    /**
+     * Creats the final room when the player reaches the final stage.
+     * 
+     * @return room object representing the final stage room
+     */
     public Room finalstageRoom() {
         Room room = new Room();
         room.setEvent(() -> {
