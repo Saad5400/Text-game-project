@@ -140,6 +140,11 @@ public class RoomsConstructor {
         return room;
     }
 
+    /**
+     * Creats story room 1 for the current player.
+     * 
+     * @return room object representing the created story room
+     */
     public Room storyRoom1() {
         Room room = new Room();
         room.setEvent(() -> {
@@ -174,6 +179,11 @@ public class RoomsConstructor {
         return room;
     }
 
+    /**
+     * Creats story room 2 for the current player.
+     * 
+     * @return room object representing the created story room
+     */
     public Room storyRoom2() {
         Room room = new Room();
         room.setEvent(() -> {
@@ -191,6 +201,11 @@ public class RoomsConstructor {
         return room;
     }
 
+    /**
+     * Creats story room 3 for the current player.
+     * 
+     * @return room object representing the created story room
+     */
     public Room storyRoom3() {
         Room room = new Room();
         room.setEvent(() -> {
