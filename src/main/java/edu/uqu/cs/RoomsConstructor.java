@@ -209,6 +209,11 @@ public class RoomsConstructor {
         return room;
     }
 
+    /**
+     * Creats stage 1 room when the player reaches the first stage.
+     * 
+     * @return room object representing the first stage room
+     */
     public Room stage1Room() {
         Room room = new Room();
         room.setEvent(() -> {
