@@ -9,7 +9,8 @@ import edu.uqu.cs.characters.*;
 
 /**
  * This class is responsible for creating the rooms and their options.
- * It contains methods for creating different types of rooms and setting their options.
+ * It contains methods for creating different types of rooms and setting their
+ * options.
  */
 public class RoomsConstructor {
 
@@ -44,7 +45,7 @@ public class RoomsConstructor {
                 }));
         return room;
     }
-    
+
     public Room createGardenRoom() {
         Room room = new Room();
 
@@ -236,11 +237,11 @@ public class RoomsConstructor {
             Utilities.print(
                     "\nAban finds an old man on the rode "
                             + "the old Man asks for help regarding a bear that is residing in the old man's farm "
-                            + " and offer to pay aban to kill the bear aban kills the bear\n\n",
+                            + "and offer to pay aban to kill the bear\n\n",
                     AnsiColor.ITALIC);
 
             // here should be a fight
-                        Utilities.print(
+            Utilities.print(
                     " .'\"'.        ___,,,___        .'``.\r\n" + //
                             ": (\\  `.\"'\"```         ```\"'\"-'  /) ;\r\n" + //
                             " :  \\                         `./  .'\r\n" + //
@@ -257,6 +258,30 @@ public class RoomsConstructor {
                             "             `. --'-- .'\r\n" + //
                             "               `-...-'\n\n",
                     AnsiColor.BRIGHT_RED, 1, new Object[0]);
+
+            // #region fight
+            Random random = new Random();
+            Enemy bear = new Enemy("bear",
+                    (double) random.nextInt(51) + 100,
+                    (double) random.nextInt(6) + 5);
+            Utilities.println("You are fighting a wild bear with " + bear.health + " health");
+            while (true) {
+                Utilities.print("\nThe bear charges at you, you must dodge him");
+                if (Utilities.quickTimeEvent("x", 10)) {
+                    Utilities.println("\nYou dodged the bear");
+                    Utilities.println("The bear smashed into a rock and got damaged 10 points");
+                    bear.health -= 10;
+                    Utilities.println("You notice the bear's health is " + bear.health
+                            + " and his head is injuried");
+                    break;
+                } else {
+                    Utilities.println("\nYou didn't dodge the bear");
+                    Utilities.println("The bear smacked you but you used your shield, you got damaged 2 points");
+                    App.player.health -= 2;
+                    Utilities.println("You notice your health is " + App.player.health);
+                }
+            }
+            // #endregion fight
 
             Utilities.print(
                     "You killed the bear.\n"

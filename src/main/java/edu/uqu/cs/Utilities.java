@@ -2,6 +2,7 @@ package edu.uqu.cs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * A class containing utility methods.
@@ -64,6 +65,10 @@ public class Utilities {
      */
     public static final int DEFAULT_DELAY = 15;
 
+
+    public static void println(String s) {
+        print(s + "\n");
+    }
     /**
      * Prints the formatted string to the console with the specified color and delay
      * between each character.
@@ -170,5 +175,21 @@ public class Utilities {
      */
     public static <T> ArrayList<T> asList(T... a) {
         return new ArrayList<T>(Arrays.asList(a));
+    }
+
+    public static boolean quickTimeEvent(String ch, int time) {
+        print("\n\nQuickly enter " + ch + " and click Enter!\n");
+        print("You have only " + time + " seconds !\n");
+        print();
+        long startTime = System.currentTimeMillis();
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        long endTime = System.currentTimeMillis();
+        long timeElapsed = endTime - startTime;
+        if (input.equalsIgnoreCase(ch) && timeElapsed < time * 1000.0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
