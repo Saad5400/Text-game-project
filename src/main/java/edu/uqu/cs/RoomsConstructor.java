@@ -266,26 +266,53 @@ public class RoomsConstructor {
                     (double) random.nextInt(6) + 5);
             Utilities.println("You are fighting a wild bear with " + bear.health + " health");
             while (true) {
-                Utilities.print("\nThe bear charges at you, you must dodge him");
+                Utilities.println("\nThe bear charges at you, you must dodge him");
                 if (Utilities.quickTimeEvent("x", 10)) {
                     Utilities.println("\nYou dodged the bear");
                     Utilities.println("The bear smashed into a rock and got damaged 10 points");
-                    bear.health -= 10;
+                    bear.takeDamage(10);
                     Utilities.println("You notice the bear's health is " + bear.health
                             + " and his head is injuried");
                     break;
                 } else {
                     Utilities.println("\nYou didn't dodge the bear");
                     Utilities.println("The bear smacked you but you used your shield, you got damaged 2 points");
-                    App.player.health -= 2;
+                    App.player.takeDamage(2);
+                    Utilities.println("You notice your health is " + App.player.health);
+                }
+            }
+            while (true) {
+                Utilities.println("\nYou see a chance to stick a sword in the bear's head");
+                if (Utilities.quickTimeEvent("d", 5)) {
+                    Utilities.println("\nYou stuck the knife in the bear's head");
+                    Utilities.println("The bear is screaming in pain and got damaged 70 points");
+                    bear.takeDamage(70);
+                    Utilities.println("You notice the bear's health is " + bear.health);
+                    break;
+                } else {
+                    Utilities.println("\nYou missed the bear's head");
+                    Utilities.println("The bear scratched you, you got damaged 5 points");
+                    App.player.takeDamage(5);
+                    Utilities.println("You notice your health is " + App.player.health);
+                }
+            }
+            while (true) {
+                Utilities.println("\nThe bear is tired and about to die, finish him off");
+                Utilities.println("\nYou use your spear and try to throw it at the bear's heart");
+                if (Utilities.quickTimeEvent("s", 5)) {
+                    Utilities.println("\nThe spear hit the bear's heart!");
+                    bear.die();
+                    break;
+                } else {
+                    Utilities.println("\nYou missed the bear's heart");
+                    Utilities.println("The bear tried to bite you but missed, you got damaged 3 points");
+                    App.player.takeDamage(3);
                     Utilities.println("You notice your health is " + App.player.health);
                 }
             }
             // #endregion fight
 
-            Utilities.print(
-                    "You killed the bear.\n"
-                            + "The Old man offers you his last bag of money as a Reward\n\n",
+            Utilities.print("\nThe Old man offers you his last bag of money as a Reward\n\n",
                     AnsiColor.ITALIC);
 
         });
@@ -294,6 +321,7 @@ public class RoomsConstructor {
                 new Option("Take the money", () -> {
 
                     System.out.println("You took the money for your self");
+                    App.player.firstChoiceCount += 1;
                     stage2Room().start();
 
                 }),
@@ -301,6 +329,7 @@ public class RoomsConstructor {
                 new Option("Refuse the money", () -> {
 
                     System.out.println("You left the money for the old man.");
+                    App.player.secondChoiceCount += 1;
                     stage2Room().start();
                 }));
         return room;

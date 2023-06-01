@@ -28,16 +28,6 @@ public abstract class Character {
     public Double attackDamage;
 
     /**
-     * The critical rate of the character.
-     */
-    public Double critRate;
-
-    /**
-     * The critical damage of the character.
-     */
-    public Double critdamage;
-
-    /**
      * Attacks the target character with the specified damage.
      *
      * @param damage the damage to be dealt

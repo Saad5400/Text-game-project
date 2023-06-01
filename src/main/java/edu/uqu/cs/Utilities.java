@@ -177,8 +177,17 @@ public class Utilities {
         return new ArrayList<T>(Arrays.asList(a));
     }
 
+    // javadoc
+
+    /**
+     * Takes a string and time, if the user enters the string within the time limit
+     * then it returns true, else false.
+     * @param ch
+     * @param time
+     * @return boolean
+     */
     public static boolean quickTimeEvent(String ch, int time) {
-        print("\n\nQuickly enter " + ch + " and click Enter!\n");
+        print("\n\nQuickly enter '" + ch + "' and click Enter!\n");
         print("You have only " + time + " seconds !\n");
         print();
         long startTime = System.currentTimeMillis();
