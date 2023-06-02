@@ -1,9 +1,6 @@
 package edu.uqu.cs;
 
-import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
-
 import edu.uqu.cs.Utilities.AnsiColor;
 import edu.uqu.cs.characters.*;
 
@@ -15,7 +12,7 @@ import edu.uqu.cs.characters.*;
 public class RoomsConstructor {
 
     /**
-     * Creats story room 1 for the current player.
+     * Creates story room 1 for the current player.
      * 
      * @return room object representing the created story room
      */
@@ -43,7 +40,7 @@ public class RoomsConstructor {
     }
 
     /**
-     * Creats story room 2 for the current player.
+     * Creates story room 2 for the current player.
      * 
      * @return room object representing the created story room
      */
@@ -65,7 +62,7 @@ public class RoomsConstructor {
     }
 
     /**
-     * Creats story room 3 for the current player.
+     * Creates story room 3 for the current player.
      * 
      * @return room object representing the created story room
      */
@@ -88,7 +85,7 @@ public class RoomsConstructor {
     }
 
     /**
-     * Creats stage 1 room when the player reaches the first stage.
+     * Creates stage 1 room when the player reaches the first stage.
      * 
      * @return room object representing the first stage room
      */
@@ -134,7 +131,7 @@ public class RoomsConstructor {
                     Utilities.println("The bear smashed into a rock and got damaged 10 points");
                     bear.takeDamage(10);
                     Utilities.println("You notice the bear's health is " + bear.health
-                            + " and his head is injuried");
+                            + " and his head is injured");
                     break;
                 } else {
                     Utilities.println("\nYou didn't dodge the bear");
@@ -198,7 +195,7 @@ public class RoomsConstructor {
     }
 
     /**
-     * Creats stage 2 room when the player reaches the second stage.
+     * Creates stage 2 room when the player reaches the second stage.
      * 
      * @return room object representing the second stage room
      */
@@ -216,12 +213,12 @@ public class RoomsConstructor {
                     AnsiColor.ITALIC);
             room.setOptions(
                     new Option("accompany them to the town", () -> {
-                        System.out.println("you accompaned them to the town.");
+                        System.out.println("you accompanied them to the town.");
                         stageRoom3().start();
 
                     }),
                     new Option("leave them to go back alone", () -> {
-                        System.out.println("you left them and contenude to the capital");
+                        System.out.println("you left them and continued to the capital");
                         stageRoom3().start();
 
                     })
@@ -232,7 +229,7 @@ public class RoomsConstructor {
     }
 
     /**
-     * Creats stage 3 room when the player reaches the third stage.
+     * Creates stage 3 room when the player reaches the third stage.
      * 
      * @return room object representing the third stage room
      */
@@ -251,14 +248,14 @@ public class RoomsConstructor {
             room.setOptions(
                     new Option("demand the reward to be in gold", () -> {
 
-                        System.out.println("You took 1 bag of gold enoght to fix your sword");
+                        System.out.println("You took 1 bag of gold enough to fix your sword");
                         finalStageRoom().start();
 
                     }),
                     new Option("take the land", () -> {
 
-                        System.out.println("You took the land in hope that you use it in the fututer ");
-                        System.out.println("You bowrrod some money to fix the sword.");
+                        System.out.println("You took the land in hope that you use it in the future");
+                        System.out.println("You bowered some money to fix the sword.");
                         finalStageRoom().start();
 
                     }));
@@ -269,7 +266,7 @@ public class RoomsConstructor {
     }
 
     /**
-     * Creats the final room when the player reaches the final stage.
+     * Creates the final room when the player reaches the final stage.
      * 
      * @return room object representing the final stage room
      */

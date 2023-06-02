@@ -126,7 +126,7 @@ public class Utilities {
      * @param s the string to print
      */
     public static void print(String s) {
-        print(s, null);
+        print(s, new Object[0]);
     }
 
     /**
