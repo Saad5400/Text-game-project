@@ -20,12 +20,17 @@ public abstract class Character {
     /**
      * The health of the character.
      */
-    public Double health;
+    public double health;
 
     /**
      * The attack damage of the character.
      */
-    public Double attackDamage;
+    public double attackDamage;
+
+    /**
+     * The state of the character.
+     */
+    public boolean isAlive = true;
 
     /**
      * Takes the specified amount of damage.
@@ -35,6 +40,7 @@ public abstract class Character {
     public void takeDamage(double damage) {
         health -= damage;
         if (health <= 0) {
+            isAlive = false;
             die();
         }
     }

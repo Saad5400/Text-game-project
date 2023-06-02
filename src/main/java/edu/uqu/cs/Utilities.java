@@ -43,8 +43,21 @@ public class Utilities {
      */
     public static final int DEFAULT_DELAY = 15;
 
+    /**
+     * Print the string and add a new line
+     * @param s
+     */
     public static void println(String s) {
         print(s + "\n");
+    }
+    
+    /**
+     * Print the string with the specified color and add a new line
+     * @param s
+     * @param color
+     */
+    public static void println(String s, String color) {
+        print(s + "\n", color);
     }
 
     /**
@@ -161,20 +174,20 @@ public class Utilities {
      * Takes a string and time, if the user enters the string within the time limit
      * then it returns true, else false.
      * 
-     * @param ch
-     * @param time
+     * @param key the string to enter
+     * @param time the time limit in seconds
      * @return boolean
      */
-    public static boolean quickTimeEvent(String ch, int time) {
-        print("\n\nQuickly enter '" + ch + "' and click Enter!\n");
-        print("You have only " + time + " seconds !\n");
+    public static boolean quickTimeEvent(String key, int time) {
+        print("\n\nQuickly enter '" + key + "' and click Enter!\n", AnsiColor.BRIGHT_RED);
+        print("You have only " + time + " seconds !\n", AnsiColor.BRIGHT_RED);
         print();
         long startTime = System.currentTimeMillis();
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         long endTime = System.currentTimeMillis();
         long timeElapsed = endTime - startTime;
-        if (input.equalsIgnoreCase(ch) && timeElapsed < time * 1000.0) {
+        if (input.equalsIgnoreCase(key) && timeElapsed < time * 1000.0) {
             return true;
         } else {
             return false;
