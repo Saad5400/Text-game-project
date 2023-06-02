@@ -193,4 +193,14 @@ public class Utilities {
             return false;
         }
     }
+
+    /**
+     * Prints the ending of the game and exits the program.
+     */
+    public static void ending() {
+        Utilities.println("\n----------------------------------------", AnsiColor.STRIKETHROUGH);
+        Utilities.println("               THE END                  ", AnsiColor.UNDERLINE);
+        Utilities.println("----------------------------------------\n", AnsiColor.STRIKETHROUGH);
+        System.exit(0);
+    }
 }

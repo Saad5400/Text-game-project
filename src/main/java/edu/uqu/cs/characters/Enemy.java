@@ -26,7 +26,7 @@ public class Enemy extends Character {
      */
     public void die() {
         System.out.println("\n----------------------------------------");
-        Utilities.print(name + " has fallen dead.\n", AnsiColor.PURPLE);
+        Utilities.print(name + " has fallen down.\n", AnsiColor.PURPLE);
         System.out.println("----------------------------------------");
     }
 

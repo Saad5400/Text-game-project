@@ -43,6 +43,8 @@ public class App {
                 if (lastPlayedRoom < 0) {
                     lastPlayedRoom = 0;
                 }
+                double playerHealth = fileScanner.nextDouble();
+                App.player.health = playerHealth;
                 fileScanner.close();
                 return lastPlayedRoom;
             }
@@ -65,7 +67,7 @@ public class App {
                 getLastPlayedRoom();
             }
             FileWriter fileWriter = new FileWriter(file);
-            fileWriter.write(roomIndex + "");
+            fileWriter.write(roomIndex + " " + App.player.health);
             fileWriter.close();
         } catch (IOException e) {
             Utilities.print("Error with file\n" + e.getMessage(), AnsiColor.RED);
@@ -83,13 +85,12 @@ public class App {
         RoomsConstructor rc = new RoomsConstructor();
 
         Room[] rooms = {
-                rc.storyRoom1(),
-                rc.storyRoom2(),
-                rc.storyRoom3(),
-                rc.stageRoom1(),
-                rc.stageRoom2(),
-                rc.stageRoom3(),
-                rc.finalStageRoom(),
+                rc.storyRoom1(),     // index 0
+                rc.storyRoom2(),     // index 1
+                rc.storyRoom3(),     // index 2
+                rc.stageRoom1(),     // index 3
+                rc.stageRoom2(),     // index 4
+                rc.finalStageRoom(), // index 5
         };
 
         // starting the first room

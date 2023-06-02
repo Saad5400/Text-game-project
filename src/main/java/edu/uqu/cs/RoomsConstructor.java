@@ -10,6 +10,7 @@ import java.util.concurrent.Callable;
 
 import edu.uqu.cs.Utilities.AnsiColor;
 import edu.uqu.cs.characters.*;
+import edu.uqu.cs.characters.Character;
 
 /**
  * This class is responsible for creating the rooms and their options.
@@ -201,7 +202,7 @@ public class RoomsConstructor {
                 // option 1
                 new Option("Take the money", () -> {
 
-                    System.out.println("You took the money for your self");
+                    Utilities.println("You took the money for your self", AnsiColor.ITALIC);
                     App.player.firstChoiceCount += 1;
                     stageRoom2().start();
 
@@ -209,7 +210,7 @@ public class RoomsConstructor {
                 // option 2
                 new Option("Refuse the money", () -> {
 
-                    System.out.println("You left the money for the old man.");
+                    Utilities.println("You left the money for the old man.", AnsiColor.ITALIC);
                     App.player.secondChoiceCount += 1;
                     stageRoom2().start();
                 }));
@@ -243,28 +244,72 @@ public class RoomsConstructor {
 
             Utilities.println("\nAban decided to fight the bandits and rescue the brother", AnsiColor.ITALIC);
             Utilities.println("You are fighting a group of bandits:\n", AnsiColor.RED);
-            // Utilities.print(
-            // " ccfMMW8W##tcc \r\n" + //
-            // " czur*rvc\\ccjvrzB \r\n" + //
-            // " Wx*rvzfzcrcnuztzc& \r\n" + //
-            // " &M#8W88M8 &#&*M#x#vjvxu*r#W& &8W88M8M*& \r\n" + //
-            // " WzvcrcztccnMB#&zMMz8&&&#8&cM#cM&BWnuzxzvrcuu8 \r\n" + //
-            // " &Muzcfcvuvx#*c&WM&W##c&&MWWW*vzvrcvn#xzW* \r\n" + //
-            // " 8&MMWzz*xzcuv\\cu/unx#xz*jWM*MW8& \r\n" + //
-            // " \r\n" + //
-            // " c#*8BB BB B&M#n \r\n" + //
-            // " &Mc8W*Wzu*# 8j*M*WWMM* &&&*&z#W \r\n" + //
-            // " &*nzcjccr*xczcccjcuc#z&8*&WWB& \r\n" + //
-            // " &c*jczt*cncncztzcM *#n#& \r\n" + //
-            // " Wn**xutuu(vcM 8u*jzv\\zvM \r\n" + //
-            // " #/ccjvrvccB BB&&&B \r\n" + //
-            // " &nccfcv*M& \r\n" + //
-            // " 8ucjccr&B\n\n",
-            // AnsiColor.BRIGHT_RED, 1, new Object[0]);
+            Utilities.print(
+                    "                                                                                          \r\n" + //
+                            "                             *jr*z            #z*fr*                                      \r\n"
+                            + //
+                            "                             1?\\1~c((*vv vcc|(u~((-(                                      \r\n"
+                            + //
+                            "z                           tn[{n?t\\[j}]v}[z][c[}u]}zf                                    \r\n"
+                            + //
+                            "                            ?z~<#<]f_1]_f]~#<+c?i <iu[                                    \r\n"
+                            + //
+                            "                           1{z}}z{{v}|f{\\f[n({x([z{[u}}#                                  \r\n"
+                            + //
+                            "                         jt|+v-?v[+ +[z-_z_1t]11]x}]n__#)                                 \r\n"
+                            + //
+                            "     #z#z                zct{c1)c(- ?{c[]z?(t}((}n{}u?{#u                      **c        \r\n"
+                            + //
+                            "    v(}n[fj/xj|*||*|# ##   ## ##  j#jxc/{n-/([/{r*jr#j  ## ##   ## #(#|/u\\tx/xj1f_|*      \r\n"
+                            + //
+                            "    x[1n[)([t(-c?]z-_ _}   j[#-?#j/#tj            tf*t/ ]?v[f   -?*?-#?{r[1/[t([j?]c      \r\n"
+                            + //
+                            "     cfx_[{-|{<c<+z<i >-z/\\      f/zt\\ |\\ -<z~<v/fu/rf/v      \\| <-x_+x>|)_\\~+u~_ |       \r\n"
+                            + //
+                            "        *jr{|1<c~+z<> >?u_~u<))1xf/zt/ \\\\ t\\*/\\ctfutrftuf~#<~#<> <?n-_n<|)-/~\\z\\#         \r\n"
+                            + //
+                            "              vfru)n)1n(}#}}*}[#})x1(f)f/)r}{z}) [[ 1{v1(t1tt[c)1n)/ //                   \r\n"
+                            + //
+                            "                  z*vv*vu }{#{}#{(x1{/[/([j-?z-[ _[ 1{c1|t)tcu#vv*v                       \r\n"
+                            + //
+                            "                                   *ucncvncxn#xn r                                        \r\n"
+                            + //
+                            "                                                                                          \r\n"
+                            + //
+                            "                      _j#t                             zxrcffz                            \r\n"
+                            + //
+                            "                      +[#_~#?rzr     r*    / t     *rn)(1-x?-n                            \r\n"
+                            + //
+                            "                      */#() **#*c*fjt}z1#  * [{z|c#c****f\\v\\c#        zc#cj|r(z           \r\n"
+                            + //
+                            "                      uv uu x\\v1-|?\\1~c~)zvu r?v_+u-\\ffccv*vv*  *n/t(j1?z[}zrr            \r\n"
+                            + //
+                            "                      x1#[]#[)u{{f1f\\[z[}z)] \\|c}[v}(/{/|{n1r*  *nuvncv*                  \r\n"
+                            + //
+                            "                        x)|(~v_-v]~ ~]z_+z+{t?{1?x[?x~+#[/   j?v_\\*#                      \r\n"
+                            + //
+                            "                           x]u+-u]< <]z_~z~{/?{1-r[-x~+#f     fz+-v<|                     \r\n"
+                            + //
+                            "                              nxr}c][z?- ?{v[]v?\\\\}\\(c  n ??#{?#r?n}1r)u                  \r\n"
+                            + //
+                            "                              vvu/*\\/*|< <]u__u~(({fc#  c 11 |1z+~x-}j-()v                \r\n"
+                            + //
+                            "                              ff\\}z[{*[[ [)c1}c}j**             cc#c(v\\*z#                \r\n"
+                            + //
+                            "                              uv1~c+_z<< <]v[[zn                                          \r\n"
+                            + //
+                            "                                [}z]]u]{n]( jvfz                                          \r\n"
+                            + //
+                            "                                 [z-_j]1t]|]]x}v                                          \r\n"
+                            + //
+                            "                                  r]1/]j([r]?v                                            \r\n"
+                            + //
+                            "                                  c/n|1#1)*{v\n",
+                    AnsiColor.BRIGHT_RED, 1, new Object[0]);
 
-            // for (Enemy bandit : aliveBandits) {
-            // Utilities.println(bandit.toString());
-            // }
+            for (Enemy bandit : aliveBandits) {
+                Utilities.println(bandit.toString());
+            }
 
             class Attack {
                 public String key;
@@ -367,60 +412,28 @@ public class RoomsConstructor {
             Utilities.println("You have killed all the kidnappers and rescued the brother!!\n",
                     AnsiColor.GREEN);
 
+            Utilities.println("The brother gave you a health potion, you drank it and healed yourself",
+                    AnsiColor.ITALIC);
+            App.player.health = 100;
+            Utilities.println("You notice your health is " + App.player.health, AnsiColor.GREEN);
+
             room.setOptions(
                     new Option("accompany them to the town", () -> {
-                        System.out.println("you accompanied them to the town.");
+                        Utilities.println("you accompanied them to the town.", AnsiColor.ITALIC);
                         App.player.firstChoiceCount += 1;
-                        stageRoom3().start();
+                        finalStageRoom().start();
 
                     }),
                     new Option("leave them to go back alone", () -> {
-                        System.out.println("you left them and continued to the capital");
+                        Utilities.println("you left them and continued to the capital", AnsiColor.ITALIC);
                         App.player.secondChoiceCount += 1;
-                        stageRoom3().start();
+                        finalStageRoom().start();
 
                     })
 
             );
         });
         return room;
-    }
-
-    /**
-     * Creates stage 3 room when the player reaches the third stage.
-     * 
-     * @return room object representing the third stage room
-     */
-    public Room stageRoom3() {
-        Room room = new Room();
-        room.setEvent(() -> {
-            App.setLastPlayedRoom(5);
-            Utilities.print(
-                    "\nAban hear’s about a rich farmer that needed help with Something and offering a large reward in return "
-                            + "The reward was a small land not to big but enough for one small family "
-                            + "Aban takes the job\n"
-
-            // Fight
-                            + "Aban dose it perfect it wasn't more than a few rogue soldiers but as a consequence the sword he borrowed was broken\n\n",
-                    AnsiColor.ITALIC);
-            room.setOptions(
-                    new Option("demand the reward to be in gold", () -> {
-
-                        System.out.println("You took 1 bag of gold enough to fix your sword");
-                        finalStageRoom().start();
-
-                    }),
-                    new Option("take the land", () -> {
-
-                        System.out.println("You took the land in hope that you use it in the future");
-                        System.out.println("You bowered some money to fix the sword.");
-                        finalStageRoom().start();
-
-                    }));
-
-        });
-        return room;
-
     }
 
     /**
@@ -431,28 +444,226 @@ public class RoomsConstructor {
     public Room finalStageRoom() {
         Room room = new Room();
         room.setEvent(() -> {
-            App.setLastPlayedRoom(6);
+            App.setLastPlayedRoom(5);
             Utilities.print(
-                    "\nAban reaches the capital and start his search for the merchants that took his sword "
-                            + "Aban found out that the merchants were near the riverside looking for Something "
-                            + "Aban confronted them to no one surprise they had powerful mercenary guarding them\n"
+                    "\nAban reaches the capital and start his search for the merchants that took his sword. "
+                            + "Aban found out that the merchants were near the riverside looking for Something. "
+                            + "Aban confronted them, but to no one surprise, they had a powerful companion guarding them\n",
+                    AnsiColor.ITALIC);
 
-            // Final Boss
-                            + " aban is president an offer by the mercenary after he wins to join his group\n\n"
+            // #region fight
+            Enemy companion = new Enemy("Companion", 100, 10);
+            Utilities.println("You are fighting the powerful companion", AnsiColor.BOLD);
+            Utilities.print(
+                    "\n\n                                ct)z                jt/#                               \r\n" + //
+                            "                                  u;#*]               *? n;                               \r\n"
+                            + //
+                            "                                  ?<  f\\              [z  `v                              \r\n"
+                            + //
+                            "                                  u;#  |             ct  u;                               \r\n"
+                            + //
+                            "                                   zf#    jffffffffu    cj#                               \r\n"
+                            + //
+                            "                                                                                          \r\n"
+                            + //
+                            "                                                                                          \r\n"
+                            + //
+                            "                                    1fz<)f|in   j>/t{<*t1                                 \r\n"
+                            + //
+                            "                                   {> ?,   ]!   \"1   \"{ !)                                \r\n"
+                            + //
+                            "                                   -+ n,r zI/{}t}I* j:v ~]                                \r\n"
+                            + //
+                            "                                   *~n  rjj#     *fjn  u+*                                \r\n"
+                            + //
+                            "                                     v#               #c                                  \r\n"
+                            + //
+                            "                                                            #u                            \r\n"
+                            + //
+                            "                                  #,*     *#              lx /~t                          \r\n"
+                            + //
+                            "                                  ~+      r>)            (:    |~r                        \r\n"
+                            + //
+                            "                                tl]         |lz        x><*     #1+n                      \r\n"
+                            + //
+                            "                             |_+1*                  /_+[c         #}_v                    \r\n"
+                            + //
+                            "                     x)))(                                           z\\\\\\\\\\\\\\\\\\*          \r\n"
+                            + //
+                            "                                                                                          \r\n"
+                            + //
+                            "                                      xu  #f#              f#  un                         \r\n"
+                            + //
+                            "         ?*        #]v  -             x\"j*;[               [;#/,u            #?           \r\n"
+                            + //
+                            "        \\f             1u     n/tz     u\",)     *t\\r        ?,,z              j|          \r\n"
+                            + //
+                            "       c[             n1    #<|ux[~     {:     ]-ru/ij       \"j                }c         \r\n"
+                            + //
+                            "       x#             r     cr    /*    n/     |    zt       (c                #x         \r\n"
+                            + //
+                            "                                                                                          \r\n"
+                            + //
+                            "                                                                                          \r\n"
+                            + //
+                            "    *n             uz|[[[[[[[z             ;n                nc                  f        \r\n"
+                            + //
+                            "   t_             <x #*******   )>r       u`1               #?                   -        \r\n"
+                            + //
+                            "   \"j            t,  u}}}}}}|    *?!c    c,tIr              }c                   -        \r\n"
+                            + //
+                            "   i(            v, c\\\\\\\\\\\\\\\\x     z   z?:r zlij           u\\                    -        \r\n"
+                            + //
+                            "   #)x            x|vrrrrrrrrv         (f     n(#                                [        \r\n"
+                            + //
+                            "                                                                                          \r\n"
+                            + //
+                            "                     *unv   nv         r\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/                                \r\n"
+                            + //
+                            "   )#           #,*_?[(\\1?-\\#][*                            x#                       l)   \r\n"
+                            + //
+                            "   ?#           )<##       *  v?[z                          x+-c                    };#   \r\n"
+                            + //
+                            "   ?#          /!*              c-]*                          u>c                v{l}     \r\n"
+                            + //
+                            "   ?#         //                  v-x                                          j-[r       \r\n"
+                            + //
+                            "   t#                                                                                     \r\n"
+                            + //
+                            "                                                                                          \r\n"
+                            + //
+                            "                                        r(z                                   *]|         \r\n"
+                            + //
+                            "     f_c                                 u}[{c                              #}_v          \r\n"
+                            + //
+                            "      v_~v                                 c{l/                           *}?u            \r\n"
+                            + //
+                            "        vc                              u]]1z    z!|                     |_c              \r\n"
+                            + //
+                            "            t\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/z#         c u\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n"
+                            + //
+                            "r                \r\n" + //
+                            "                                                                                          \r\n"
+                            + //
+                            "                            x                                #f                           \r\n"
+                            + //
+                            "                            ,     vn   []]!!]]|     c>      #!t                           \r\n"
+                            + //
+                            "                            ,    (?    cuu<~uu*     {+     #Ir                            \r\n"
+                            + //
+                            "                            ,    \"r    f));I))n    n:z      _{                            \r\n"
+                            + //
+                            "                            ,    ?}   j{{{;;{{{v  ({*        {[                           \r\n"
+                            + //
+                            "                            ;     rx                                                      \r\n"
+                            + //
+                            "                                                                                          \r\n"
+                            + //
+                            "                           u#                            v}u                              \r\n"
+                            + //
+                            "                         1nf1]zj1                    t?--[xu /t                           \r\n"
+                            + //
+                            "                        n1 (}{    n}}}}}}}x          *n|?__f  ]*                          \r\n"
+                            + //
+                            "                        - j]|v             j{{{{{{{{cx1rc\\_~r z]                          \r\n"
+                            + //
+                            "                       cv  #x1c                     #{]]}j#    x#                         \r\n"
+                            + //
+                            "                                                                                          \r\n"
+                            + //
+                            "                                                                                          \r\n"
+                            + //
+                            "                    #t      <x                                })        t#                \r\n"
+                            + //
+                            "                    {v      v!t                             #{!#        c}                \r\n"
+                            + //
+                            "                   x(        #\\?]v                        r?-j           (n               \r\n"
+                            + //
+                            "                   [                                                      )\n",
+                    AnsiColor.BRIGHT_RED, 0, new Object[0]);
+            Utilities.println("You notice the companion's health is " + companion.health, AnsiColor.ITALIC);
 
-            /*
-             * :The ending depends on the player’s choices
-             * :If most of the choices are B
-             * Aban refuses the offer and decides to spear the merchants and decides to
-             * settle and start over.
-             * 
-             * :If most of the choices are A
-             * Aban accepts the mercenary offer then kills the merchants and take his sword
-             * back choosing to continue to live as a soldier.
-             * 
-             */
-            );
+            Random rand = new Random();
+            while (companion.isAlive) {
+                boolean success = true;
+                for (int i = 0; i < 3; i++) {
+                    // get a random char
+                    char c = (char) (rand.nextInt(26) + 'a');
+                    // convert to String
+                    String s = String.valueOf(c);
+                    if (!Utilities.quickTimeEvent(s, 3)) {
+                        success = false;
+                        break;
+                    }
+                }
+                ;
+                if (success) {
+                    Utilities.println("You have done a great damage to the companion!", AnsiColor.BOLD);
+                    companion.takeDamage(20);
+                    if (companion.isAlive) {
+                        Utilities.println("You notice the companion's health is " + companion.health, AnsiColor.ITALIC);
+                    }
+                } else {
+                    Utilities.println("The companion has done a great damage to you!", AnsiColor.BOLD);
+                    App.player.takeDamage(10);
+                    Utilities.println("You notice your health is " + App.player.health, AnsiColor.ITALIC);
+                }
+            }
 
+            Utilities.println("You have defeated the companion!", AnsiColor.GREEN);
+            Utilities.println("But he is still alive and is really tired.", AnsiColor.YELLOW);
+            Utilities.println("\nWhat do you want to do?", AnsiColor.BRIGHT_CYAN);
+
+            Utilities.println("1. Let him go", AnsiColor.CYAN);
+            Utilities.println("2. Kill him\n", AnsiColor.CYAN);
+
+            Utilities.print("Enter your choice: ", AnsiColor.BLUE);
+            Utilities.setColor(AnsiColor.PURPLE);
+            int playerChoice;
+
+            while (true) {
+                try {
+                    playerChoice = App.scanner.nextInt();
+                    break;
+                } catch (Exception e) {
+                    App.scanner.nextLine();
+                    Utilities.println("Please enter a valid number!", AnsiColor.RED);
+                    continue;
+                }
+            }
+            Utilities.resetColor();
+
+            switch (playerChoice) {
+                case 1:
+                    Utilities.println("You have let the companion go", AnsiColor.ITALIC);
+                    App.player.firstChoiceCount += 1;
+                    break;
+                case 2:
+                    Utilities.println("You have killed the companion", AnsiColor.ITALIC);
+                    App.player.secondChoiceCount += 1;
+                    break;
+                default:
+                    Utilities.println("You have unlocked a hidden ending!", AnsiColor.BOLD);
+                    Utilities.println("Aban decided to join the merchants and fight along the companion",
+                            AnsiColor.ITALIC);
+                    Utilities.println("Leaving his memory behind, he started a new life...", AnsiColor.ITALIC);
+                    Utilities.ending();
+                    break;
+            }
+
+            Utilities.println("You retrieved your sword from the merchants, unlocking your forgotten past...",
+                    AnsiColor.BOLD);
+            if (App.player.firstChoiceCount > App.player.secondChoiceCount) {
+                // print his memories
+                Utilities.println(
+                        "Aban remembered that he was a great warrior, he fought in countless battles under the Great King. Not only did he win a lot, but he also were smart and merciful warrior. Aban decided to return to the Great King to serve him once again!",
+                        AnsiColor.ITALIC);
+            } else {
+                Utilities.println(
+                        "Aban's past is meaningless, he used to be a nobody who will kill anyone for money. Aban is ashamed of his past and regret remembering it. Yet, he still cannot change himself, so he kills the merchants who saved his life and continues his journey...",
+                        AnsiColor.ITALIC);
+            }
+            Utilities.ending();
         });
         return room;
     }
