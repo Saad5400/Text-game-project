@@ -79,7 +79,7 @@ public class App {
      */
     public static void main(String[] args) {
 
-        // Go to RoomsConstructer.java to see how this works
+        // Go to RoomsConstructor.java to see how this works
         RoomsConstructor rc = new RoomsConstructor();
 
         Room[] rooms = {

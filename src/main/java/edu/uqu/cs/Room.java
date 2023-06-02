@@ -82,15 +82,7 @@ public class Room {
      * 
      */
     public void start() {
-
-        // first print the message with white color using the print method in Utilities
-        // class
-        // it's very similiar to printf, but it will print in colors and add a typing
-        // effect
-        // see Utilities.java
         event.run();
-
-        
         options.add(new Option("Reload last checkpoint", () -> {
             Utilities.print("Are you sure you want to reload the last checkpoint? (y/n): ", AnsiColor.BLUE);
             String choice = App.scanner.next();
@@ -114,7 +106,7 @@ public class Room {
             start();
         }));
         // print the options with cyan color
-        Utilities.print("Options:", AnsiColor.BRIGHT_CYAN_BACKGROUND);
+        Utilities.print("Options:", AnsiColor.BRIGHT_CYAN);
         Utilities.print();
         // loop for each option and print its text
         for (int i = 0; i < options.size(); i++) {
@@ -139,7 +131,7 @@ public class Room {
 
                 // validate the user choice
                 if (playerChoice > options.size() || playerChoice <= 0) {
-                    Utilities.print("Your choice must be betweem 1 and " + options.size() + "!\n\n", AnsiColor.RED);
+                    Utilities.print("Your choice must be between 1 and " + options.size() + "!\n\n", AnsiColor.RED);
                 } else {
                     // if the choice is valid, break the loop
                     break;
