@@ -14,133 +14,6 @@ import edu.uqu.cs.characters.*;
  */
 public class RoomsConstructor {
 
-    // example room
-    public Room createStartRoom() {
-        // first create the object
-        Room room = new Room();
-        room.setEvent(() -> {
-            App.setLastPlayedRoom(0);
-            Utilities.print("You just woke up in a dark and empty castle!\n\n", AnsiColor.GREEN);
-        });
-        // set its message
-        // room.setMessage("You just woke up in a dark and empty castle!");
-        // IMPORTANT: No more set message, use set event like above
-
-        // set each option and its action
-        room.setOptions(
-                // option 1 // this is a lambda expression that will be called when the user
-                // choose this option
-                new Option("Go out", () -> {
-
-                    System.out.println("You went out...");
-                    // you can change rooms like this
-                    createGardenRoom().start();
-
-                }),
-                // option 2
-                new Option("Explore the castle", () -> {
-
-                    System.out.println("You are exploring the castle...");
-                    exploreCastleRoom().start();
-                }));
-        return room;
-    }
-
-    public Room createGardenRoom() {
-        Room room = new Room();
-
-        room.setEvent(() -> {
-            App.setLastPlayedRoom(1);
-            Utilities.print("You are out in the garden!\n\n", AnsiColor.GREEN);
-        });
-        // room.setMessage("You are out in the garden!");
-        // IMPORTANT: No more set message, use set event like above
-
-        room.setOptions(
-                new Option("Go back", () -> {
-
-                    System.out.println("You went back...");
-                    createStartRoom().start();
-
-                }),
-                new Option("Fight the skeleton", () -> {
-
-                    Enemy skeleton = new Enemy("Skeleton", 100.0, 40.0);
-
-                    Utilities.print("Fight started...\n");
-                    Random random = new Random();
-
-                    Scanner scnr = new Scanner(System.in);
-
-                    for (int i = 0; i <= 30; i++) {
-                        /* */
-                        Utilities.print("You should enter a number between 1 to 3: ", AnsiColor.RED);
-
-                        int answer = random.nextInt(3) + 1;
-                        int input = scnr.nextInt();
-
-                        if (input == answer) {
-                            Utilities.print("your damage the skeleton ");
-                            Utilities.print("40\n", AnsiColor.GREEN);
-
-                            skeleton.health -= App.player.attackDamage;
-
-                            if (skeleton.health > 0) {
-                                Utilities.print(skeleton.health + "\n", AnsiColor.RED);
-                            }
-                        } else if (input != answer) {
-                            Utilities.print("your damaged by skeleton ");
-                            Utilities.print("40\n", AnsiColor.RED);
-
-                            App.player.health -= skeleton.attackDamage;
-
-                            if (skeleton.health > 0) {
-                                Utilities.print(App.player.health + "\n", AnsiColor.GREEN);
-                            }
-                        }
-                        if (App.player.health <= 0) {
-                            i = 50;
-                            Utilities.print("you dead\n", AnsiColor.RED);
-                        }
-
-                        if (skeleton.health <= 0) {
-                            Utilities.print("you killed the skeleton\n", AnsiColor.GREEN);
-                            i = 50;
-                        }
-
-                    }
-                }));
-        return room;
-    }
-
-    public Room exploreCastleRoom() {
-        Room room = new Room();
-
-        room.setEvent(() -> {
-            App.setLastPlayedRoom(2);
-            Utilities.print("You are in the castle!\n\n", AnsiColor.GREEN);
-        });
-        // room.setMessage("You are in the castle");
-        // IMPORTANT: No more set message, use set event like above
-
-        room.setOptions(
-                // option 1
-                new Option("Go back", () -> {
-
-                    System.out.println("You went back...");
-                    createGardenRoom().start();
-
-                }),
-                // option 2
-                new Option("Go ahead", () -> {
-
-                    System.out.println("You going ahead...");
-
-                }));
-
-        return room;
-    }
-
     /**
      * Creats story room 1 for the current player.
      * 
@@ -152,18 +25,7 @@ public class RoomsConstructor {
             App.setLastPlayedRoom(0);
 
             // print game title
-            Utilities.print(
-                    "  _____ _             __  __               __        ___              _____                        _    _   _ _        ____           _   \r\n"
-                            + //
-                            " |_   _| |__   ___   |  \\/  | __ _ _ __    \\ \\      / / |__   ___    | ____|_ __ __ _ ___  ___  __| |  | | | (_)___   |  _ \\ __ _ ___| |_ \r\n"
-                            + //
-                            "   | | | '_ \\ / _ \\  | |\\/| |/ _` | '_ \\    \\ \\ /\\ / /| '_ \\ / _ \\   |  _| | '__/ _` / __|/ _ \\/ _` |  | |_| | / __|  | |_) / _` / __| __|\r\n"
-                            + //
-                            "   | | | | | |  __/  | |  | | (_| | | | |    \\ V  V / | | | | (_) |  | |___| | | (_| \\__ \\  __/ (_| |  |  _  | \\__ \\  |  __/ (_| \\__ \\ |_ \r\n"
-                            + //
-                            "   |_| |_| |_|\\___|  |_|  |_|\\__,_|_| |_|     \\_/\\_/  |_| |_|\\___/   |_____|_|  \\__,_|___/\\___|\\__,_|  |_| |_|_|___/  |_|   \\__,_|___/\\__|\r\n"
-                            + //
-                            "                                                                                                                                          \n\n",
+            Utilities.print("\n\n\n\n",
                     AnsiColor.PURPLE, 1, new Object[0]);
 
             Utilities.print(
@@ -218,7 +80,7 @@ public class RoomsConstructor {
 
             room.setOptions(
                     new Option("Continue...", () -> {
-                        stage1Room().start();
+                        stageRoom1().start();
                     }));
 
         });
@@ -230,7 +92,7 @@ public class RoomsConstructor {
      * 
      * @return room object representing the first stage room
      */
-    public Room stage1Room() {
+    public Room stageRoom1() {
         Room room = new Room();
         room.setEvent(() -> {
             App.setLastPlayedRoom(3);
@@ -322,7 +184,7 @@ public class RoomsConstructor {
 
                     System.out.println("You took the money for your self");
                     App.player.firstChoiceCount += 1;
-                    stage2Room().start();
+                    stageRoom2().start();
 
                 }),
                 // option 2
@@ -330,7 +192,7 @@ public class RoomsConstructor {
 
                     System.out.println("You left the money for the old man.");
                     App.player.secondChoiceCount += 1;
-                    stage2Room().start();
+                    stageRoom2().start();
                 }));
         return room;
     }
@@ -340,7 +202,7 @@ public class RoomsConstructor {
      * 
      * @return room object representing the second stage room
      */
-    public Room stage2Room() {
+    public Room stageRoom2() {
         Room room = new Room();
         room.setEvent(() -> {
             App.setLastPlayedRoom(4);
@@ -355,12 +217,12 @@ public class RoomsConstructor {
             room.setOptions(
                     new Option("accompany them to the town", () -> {
                         System.out.println("you accompaned them to the town.");
-                        stage3Room().start();
+                        stageRoom3().start();
 
                     }),
                     new Option("leave them to go back alone", () -> {
                         System.out.println("you left them and contenude to the capital");
-                        stage3Room().start();
+                        stageRoom3().start();
 
                     })
 
@@ -374,7 +236,7 @@ public class RoomsConstructor {
      * 
      * @return room object representing the third stage room
      */
-    public Room stage3Room() {
+    public Room stageRoom3() {
         Room room = new Room();
         room.setEvent(() -> {
             App.setLastPlayedRoom(5);
@@ -390,14 +252,14 @@ public class RoomsConstructor {
                     new Option("demand the reward to be in gold", () -> {
 
                         System.out.println("You took 1 bag of gold enoght to fix your sword");
-                        finalstageRoom().start();
+                        finalStageRoom().start();
 
                     }),
                     new Option("take the land", () -> {
 
                         System.out.println("You took the land in hope that you use it in the fututer ");
                         System.out.println("You bowrrod some money to fix the sword.");
-                        finalstageRoom().start();
+                        finalStageRoom().start();
 
                     }));
 
@@ -411,7 +273,7 @@ public class RoomsConstructor {
      * 
      * @return room object representing the final stage room
      */
-    public Room finalstageRoom() {
+    public Room finalStageRoom() {
         Room room = new Room();
         room.setEvent(() -> {
             App.setLastPlayedRoom(6);

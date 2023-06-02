@@ -86,10 +86,10 @@ public class App {
                 rc.storyRoom1(),
                 rc.storyRoom2(),
                 rc.storyRoom3(),
-                rc.stage1Room(),
-                rc.stage2Room(),
-                rc.stage3Room(),
-                rc.finalstageRoom(),
+                rc.stageRoom1(),
+                rc.stageRoom2(),
+                rc.stageRoom3(),
+                rc.finalStageRoom(),
         };
 
         // starting the first room
