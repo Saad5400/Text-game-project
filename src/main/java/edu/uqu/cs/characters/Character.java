@@ -28,17 +28,6 @@ public abstract class Character {
     public Double attackDamage;
 
     /**
-     * Attacks the target character with the specified damage.
-     *
-     * @param damage the damage to be dealt
-     * @param target the target character to be attacked
-     */
-    public void attack(double damage, Character target) {
-        // print this attacked target
-        target.takeDamage(damage);
-    }
-
-    /**
      * Takes the specified amount of damage.
      *
      * @param damage the amount of damage to be taken

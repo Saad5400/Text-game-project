@@ -13,16 +13,25 @@ import edu.uqu.cs.characters.Enemy;
  */
 public class Room {
 
-    // for each room object we will store its message, options and enemies
-    // see class Option and class Enemy
+    
+    /**
+     * Represents an option available to the player in a room.
+     */
     private Runnable event = () -> {
-    }; // empty event
+    };
+
+    /**
+     * The options available to the player in this room.
+     */
     private ArrayList<Option> options = new ArrayList<Option>();
 
-    // this will be used to store the user choice
+    
+    /**
+     * The index of the option chosen by the player.
+     */
     private int playerChoice;
 
-    // #region Constructors
+    //#region Constructors
     /**
      * Constructs a new Room object with the given options, enemies, and event.
      * 
@@ -64,7 +73,7 @@ public class Room {
     public Room() {
         this(new ArrayList<Option>());
     }
-    // #endregion Constructors
+    //#endregion Constructors
 
     /**
      * Starts the room by executing the event and displaying the available options
@@ -146,26 +155,7 @@ public class Room {
         options.get(playerChoice - 1).action.run();
     }
 
-    // #region Getters and Setters
-
-    /**
-     * Gets or sets the options available to the player in this room.
-     * 
-     * @return the options available to the player in this room
-     */
-    public ArrayList<Option> getOptions() {
-        return options;
-    }
-
-    /**
-     * Sets the options available to the player in this room.
-     * 
-     * @param options the options available to the player in this room
-     */
-    public void setOptions(ArrayList<Option> options) {
-        this.options = options;
-    }
-
+    //#region Getters and Setters
     /**
      * Sets the options available to the player in this room.
      * 
@@ -183,4 +173,5 @@ public class Room {
     public void setEvent(Runnable event) {
         this.event = event;
     }
+    //#endregion Getters and Setters
 }

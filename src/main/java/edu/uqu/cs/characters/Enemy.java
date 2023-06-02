@@ -24,7 +24,7 @@ public class Enemy extends Character {
     /**
      * Prints a message indicating that the enemy has died.
      */
-    public void die() {
+    public void die() { 
         System.out.println("\n----------------------------------------");
         Utilities.print(name + " has fallen dead.\n", AnsiColor.PURPLE);
         System.out.println("----------------------------------------");
