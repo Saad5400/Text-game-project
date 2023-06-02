@@ -13,7 +13,6 @@ import edu.uqu.cs.characters.Enemy;
  */
 public class Room {
 
-    
     /**
      * Represents an option available to the player in a room.
      */
@@ -25,13 +24,12 @@ public class Room {
      */
     private ArrayList<Option> options = new ArrayList<Option>();
 
-    
     /**
      * The index of the option chosen by the player.
      */
     private int playerChoice;
 
-    //#region Constructors
+    // #region Constructors
     /**
      * Constructs a new Room object with the given options, enemies, and event.
      * 
@@ -73,7 +71,7 @@ public class Room {
     public Room() {
         this(new ArrayList<Option>());
     }
-    //#endregion Constructors
+    // #endregion Constructors
 
     /**
      * Starts the room by executing the event and displaying the available options
@@ -83,28 +81,6 @@ public class Room {
      */
     public void start() {
         event.run();
-        options.add(new Option("Reload last checkpoint", () -> {
-            Utilities.print("Are you sure you want to reload the last checkpoint? (y/n): ", AnsiColor.BLUE);
-            String choice = App.scanner.next();
-            if (choice.equalsIgnoreCase("y")) {
-                App.setLastPlayedRoom(App.getLastPlayedRoom() - 1);
-                Utilities.print("Please restart the game.");
-                System.exit(0);
-            }
-            options.remove(options.size() - 1);
-            start();
-        }));
-        // add an option for exiting the game
-        options.add(new Option("Close the game", () -> {
-            Utilities.print("Are you sure you want to exit? (y/n): ", AnsiColor.BLUE);
-            String choice = App.scanner.next();
-            if (choice.equalsIgnoreCase("y")) {
-                Utilities.print("Goodbye!", AnsiColor.RED);
-                System.exit(0);
-            }
-            options.remove(options.size() - 1);
-            start();
-        }));
         // print the options with cyan color
         Utilities.print("Options:", AnsiColor.BRIGHT_CYAN);
         Utilities.print();
@@ -147,7 +123,7 @@ public class Room {
         options.get(playerChoice - 1).action.run();
     }
 
-    //#region Getters and Setters
+    // #region Getters and Setters
     /**
      * Sets the options available to the player in this room.
      * 
@@ -155,6 +131,26 @@ public class Room {
      */
     public void setOptions(Option... options) {
         this.options = Utilities.asList(options);
+        this.options.add(new Option("Reload last checkpoint", () -> {
+            Utilities.print("Are you sure you want to reload the last checkpoint? (y/n): ", AnsiColor.BLUE);
+            String choice = App.scanner.next();
+            if (choice.equalsIgnoreCase("y")) {
+                App.setLastPlayedRoom(App.getLastPlayedRoom() - 1);
+                Utilities.print("Please restart the game.");
+                System.exit(0);
+            }
+            this.start();
+        }));
+        // add an option for exiting the game
+        this.options.add(new Option("Close the game", () -> {
+            Utilities.print("Are you sure you want to exit? (y/n): ", AnsiColor.BLUE);
+            String choice = App.scanner.next();
+            if (choice.equalsIgnoreCase("y")) {
+                Utilities.print("Goodbye!", AnsiColor.RED);
+                System.exit(0);
+            }
+            this.start();
+        }));
     }
 
     /**
@@ -165,5 +161,5 @@ public class Room {
     public void setEvent(Runnable event) {
         this.event = event;
     }
-    //#endregion Getters and Setters
+    // #endregion Getters and Setters
 }
