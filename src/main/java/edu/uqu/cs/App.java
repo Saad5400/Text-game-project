@@ -45,12 +45,16 @@ public class App {
                 }
                 double playerHealth = fileScanner.nextDouble();
                 App.player.health = playerHealth;
+                int firstChoiceCount = fileScanner.nextInt();
+                App.player.firstChoiceCount = firstChoiceCount;
+                int secondChoiceCount = fileScanner.nextInt();
+                App.player.secondChoiceCount = secondChoiceCount;
                 fileScanner.close();
                 return lastPlayedRoom;
             }
             file.createNewFile();
-        } catch (IOException e) {
-            Utilities.print("Error with file\n" + e.getMessage(), AnsiColor.RED);
+        } catch (Exception e) {
+            setLastPlayedRoom(0);
         }
         return 0;
     }
@@ -67,7 +71,7 @@ public class App {
                 getLastPlayedRoom();
             }
             FileWriter fileWriter = new FileWriter(file);
-            fileWriter.write(roomIndex + " " + App.player.health);
+            fileWriter.write(roomIndex + " " + App.player.health + " " + App.player.firstChoiceCount + " " + App.player.secondChoiceCount);
             fileWriter.close();
         } catch (IOException e) {
             Utilities.print("Error with file\n" + e.getMessage(), AnsiColor.RED);

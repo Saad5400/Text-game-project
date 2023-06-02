@@ -203,7 +203,7 @@ public class RoomsConstructor {
                 new Option("Take the money", () -> {
 
                     Utilities.println("You took the money for your self", AnsiColor.ITALIC);
-                    App.player.firstChoiceCount += 1;
+                    App.player.secondChoiceCount += 1;
                     stageRoom2().start();
 
                 }),
@@ -211,7 +211,7 @@ public class RoomsConstructor {
                 new Option("Refuse the money", () -> {
 
                     Utilities.println("You left the money for the old man.", AnsiColor.ITALIC);
-                    App.player.secondChoiceCount += 1;
+                    App.player.firstChoiceCount += 1;
                     stageRoom2().start();
                 }));
         return room;
@@ -580,7 +580,7 @@ public class RoomsConstructor {
                             "                   x(        #\\?]v                        r?-j           (n               \r\n"
                             + //
                             "                   [                                                      )\n",
-                    AnsiColor.BRIGHT_RED, 0, new Object[0]);
+                    AnsiColor.BRIGHT_RED, 1, new Object[0]);
             Utilities.println("You notice the companion's health is " + companion.health, AnsiColor.ITALIC);
 
             Random rand = new Random();

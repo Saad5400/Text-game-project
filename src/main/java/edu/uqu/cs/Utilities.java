@@ -41,7 +41,7 @@ public class Utilities {
     /**
      * The default delay between each character when printing a string.
      */
-    public static final int DEFAULT_DELAY = 15;
+    public static final int DEFAULT_DELAY = 25;
 
     /**
      * Print the string and add a new line
@@ -74,7 +74,7 @@ public class Utilities {
     public static void print(String s, String color, int delay, Object... args) {
         String formatted = String.format(s, args);
         double currentDelay = delay;
-        double minDelay = 3;
+        double minDelay = DEFAULT_DELAY;
         setColor(color);
         for (Character ch : formatted.toCharArray()) {
             System.out.print(ch);
