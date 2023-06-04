@@ -1,16 +1,10 @@
 package edu.uqu.cs;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
-import java.util.AbstractMap.SimpleEntry;
-import java.util.concurrent.Callable;
 
 import edu.uqu.cs.Utilities.AnsiColor;
 import edu.uqu.cs.characters.*;
-import edu.uqu.cs.characters.Character;
 
 /**
  * This class is responsible for creating the rooms and their options.
@@ -143,7 +137,7 @@ public class RoomsConstructor {
 
             while (true) {
                 Utilities.println("\nThe bear charges at you, you must dodge him", AnsiColor.YELLOW);
-                if (Utilities.quickTimeEvent("dodge", 10)) {
+                if (Utilities.quickTimeEvent("dodge", 15)) {
                     Utilities.println("\nYou dodged the bear", AnsiColor.BOLD);
                     Utilities.println("The bear smashed into a rock and got damaged 10 points", AnsiColor.ITALIC);
                     bear.takeDamage(10);
@@ -160,7 +154,7 @@ public class RoomsConstructor {
             }
             while (true) {
                 Utilities.println("\nYou see a chance to stick a sword in the bear's head", AnsiColor.YELLOW);
-                if (Utilities.quickTimeEvent("stab", 5)) {
+                if (Utilities.quickTimeEvent("stab", random.nextInt(6) + 10)) {
                     Utilities.println("\nYou stuck the knife in the bear's head", AnsiColor.BOLD);
                     Utilities.println("The bear is screaming in pain and got damaged 70 points", AnsiColor.ITALIC);
                     bear.takeDamage(70);
@@ -225,7 +219,7 @@ public class RoomsConstructor {
     public Room stageRoom2() {
         Room room = new Room();
         room.setEvent(() -> {
-            App.setLastPlayedRoom(4);
+            App.setLastPlayedRoom(4);         
             Utilities.println(
                     "\nAban decided to rest in a coastal town on his way to the capital. "
                             + "At night the town was hit by a storm. "
@@ -321,11 +315,6 @@ public class RoomsConstructor {
                     this.description = description;
                     this.damage = damage;
                 }
-
-                public Attack(String description, int damage) {
-                    this.description = description;
-                    this.damage = damage;
-                }
             }
 
             ArrayList<Attack> playerDefends = new ArrayList<>();
@@ -378,7 +367,7 @@ public class RoomsConstructor {
                     Attack defend = playerDefends.get(defendIndex);
                     Utilities.println(defend.description, AnsiColor.YELLOW);
 
-                    if (Utilities.quickTimeEvent(defend.key, 5)) {
+                    if (Utilities.quickTimeEvent(defend.key, random.nextInt(11) + 5)) {
                         Utilities.println("\nYou defended yourself", AnsiColor.BOLD);
                         Utilities.println("You damaged " + bandit.name + " " + defend.damage + " points",
                                 AnsiColor.ITALIC);
@@ -448,12 +437,12 @@ public class RoomsConstructor {
             Utilities.print(
                     "\nAban reaches the capital and start his search for the merchants that took his sword. "
                             + "Aban found out that the merchants were near the riverside looking for Something. "
-                            + "Aban confronted them, but to no one surprise, they had a powerful companion guarding them\n",
+                            + "Aban confronted them, but to no one surprise, they had a powerful mercenary guarding them\n",
                     AnsiColor.ITALIC);
 
             // #region fight
-            Enemy companion = new Enemy("Companion", 100, 10);
-            Utilities.println("You are fighting the powerful companion", AnsiColor.BOLD);
+            Enemy mercenary = new Enemy("Qasim ", 100, 10);
+            Utilities.println("You are fighting the powerful mercenary: " + mercenary.name, AnsiColor.BOLD);
             Utilities.print(
                     "\n\n                                ct)z                jt/#                               \r\n" + //
                             "                                  u;#*]               *? n;                               \r\n"
@@ -581,36 +570,37 @@ public class RoomsConstructor {
                             + //
                             "                   [                                                      )\n",
                     AnsiColor.BRIGHT_RED, 1, new Object[0]);
-            Utilities.println("You notice the companion's health is " + companion.health, AnsiColor.ITALIC);
+            Utilities.println("You notice " + mercenary.name + "'s health is " + mercenary.health, AnsiColor.ITALIC);
 
             Random rand = new Random();
-            while (companion.isAlive) {
+            while (mercenary.isAlive) {
                 boolean success = true;
                 for (int i = 0; i < 3; i++) {
                     // get a random char
                     char c = (char) (rand.nextInt(26) + 'a');
                     // convert to String
                     String s = String.valueOf(c);
-                    if (!Utilities.quickTimeEvent(s, 3)) {
+                    if (!Utilities.quickTimeEvent(s, rand.nextInt(6) + 3)) {
                         success = false;
                         break;
                     }
                 }
                 ;
                 if (success) {
-                    Utilities.println("You have done a great damage to the companion!", AnsiColor.BOLD);
-                    companion.takeDamage(20);
-                    if (companion.isAlive) {
-                        Utilities.println("You notice the companion's health is " + companion.health, AnsiColor.ITALIC);
+                    Utilities.println("You have done a great damage to " + mercenary.name + "!", AnsiColor.GREEN);
+                    mercenary.takeDamage(20);
+                    if (mercenary.isAlive) {
+                        Utilities.println("You notice " + mercenary.name + "'s health is " + mercenary.health,
+                                AnsiColor.ITALIC);
                     }
                 } else {
-                    Utilities.println("The companion has done a great damage to you!", AnsiColor.BOLD);
+                    Utilities.println(mercenary.name + " has done a great damage to you!", AnsiColor.YELLOW);
                     App.player.takeDamage(10);
                     Utilities.println("You notice your health is " + App.player.health, AnsiColor.ITALIC);
                 }
             }
 
-            Utilities.println("You have defeated the companion!", AnsiColor.GREEN);
+            Utilities.println("You have defeated " + mercenary.name + "!", AnsiColor.GREEN);
             Utilities.println("But he is still alive and is really tired.", AnsiColor.YELLOW);
             Utilities.println("\nWhat do you want to do?", AnsiColor.BRIGHT_CYAN);
 
@@ -635,16 +625,16 @@ public class RoomsConstructor {
 
             switch (playerChoice) {
                 case 1:
-                    Utilities.println("You have let the companion go", AnsiColor.ITALIC);
+                    Utilities.println("You have let " + mercenary.name + " go", AnsiColor.ITALIC);
                     App.player.firstChoiceCount += 1;
                     break;
                 case 2:
-                    Utilities.println("You have killed the companion", AnsiColor.ITALIC);
+                    Utilities.println("You have killed " + mercenary.name, AnsiColor.ITALIC);
                     App.player.secondChoiceCount += 1;
                     break;
                 default:
                     Utilities.println("You have unlocked a hidden ending!", AnsiColor.BOLD);
-                    Utilities.println("Aban decided to join the merchants and fight along the companion",
+                    Utilities.println("Aban decided to join the merchants and fight along " + mercenary.name,
                             AnsiColor.ITALIC);
                     Utilities.println("Leaving his memory behind, he started a new life...", AnsiColor.ITALIC);
                     Utilities.ending();

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import edu.uqu.cs.characters.Player;
+
 /**
  * A class containing utility methods.
  */
@@ -198,6 +200,8 @@ public class Utilities {
      * Prints the ending of the game and exits the program.
      */
     public static void ending() {
+        App.player = new Player();
+        App.setLastPlayedRoom(0);
         Utilities.println("\n----------------------------------------", AnsiColor.STRIKETHROUGH);
         Utilities.println("               THE END                  ", AnsiColor.UNDERLINE);
         Utilities.println("----------------------------------------\n", AnsiColor.STRIKETHROUGH);
