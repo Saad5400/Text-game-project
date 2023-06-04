@@ -1,6 +1,6 @@
 # Project Name
 
-- The Man Who Erased His Past
+- Erased
 
 # Group members and contributions
 
